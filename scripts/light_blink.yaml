@@ -1,0 +1,64 @@
+sequence:
+  - service: system_log.write
+    data_template:
+      message: light_blink has started running
+      level: info
+
+  - service: light.turn_on
+    data_template:
+      entity_id: "{{ entity_id }}"
+    data:
+      brightness: 255
+  - delay:
+      milliseconds: "{{ milliseconds }}"
+
+  - service: light.turn_on
+    data_template:
+      entity_id: "{{ entity_id }}"
+    data:
+      brightness: 1
+  - delay:
+      milliseconds: "{{ milliseconds }}"
+
+  - service: light.turn_on
+    data_template:
+      entity_id: "{{ entity_id }}"
+    data:
+      brightness: 255
+  - delay:
+      milliseconds: "{{ milliseconds }}"
+
+  - service: light.turn_on
+    data_template:
+      entity_id: "{{ entity_id }}"
+    data:
+      brightness: 1
+  - delay:
+      milliseconds: "{{ milliseconds }}"
+
+  - service: light.turn_on
+    data_template:
+      entity_id: "{{ entity_id }}"
+    data:
+      brightness: 255
+  - delay:
+      milliseconds: "{{ milliseconds }}"
+
+  - service: light.turn_on
+    data_template:
+      entity_id: "{{ entity_id }}"
+    data:
+      brightness: 1
+  - delay:
+      milliseconds: "{{ milliseconds }}"
+
+  - service: light.turn_on
+    data_template:
+      entity_id: "{{ entity_id }}"
+    data:
+      brightness: 255
+
+  - service: system_log.write
+    data_template:
+      message: light_blink has finished running
+      level: info

@@ -1,0 +1,49 @@
+- alias: "Family Room TV paused/stopped"
+  initial_state: 'off'
+  trigger:
+    - platform: state
+      entity_id: media_player.family_room_tv
+      from: 'playing'
+      to: 'home'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+      service: light.turn_on
+      data:
+        entity_id: light.family_room_lights
+        brightness_pct: 75
+        transition: 15
+
+- alias: "Family Room TV started"
+  initial_state: 'off'
+  trigger:
+    - platform: state
+      entity_id: media_player.family_room_tv
+      to: 'playing'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+      service: light.turn_on
+      data:
+        entity_id: light.family_room_lights
+        transition: 15
+        brightness_pct: 1
+
+#55545 Screensaver app_id
+- alias: "Family Room TV Screensaver On"
+  initial_state: 'off'
+  trigger:
+    - platform: state
+      entity_id: media_player.family_room_tv
+      to: 'idle'
+      from: 'playing'
+  action:
+      service: light.turn_on
+      data:
+        entity_id: light.family_room_lights
+        transition: 15
+        brightness_pct: 75

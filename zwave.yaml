@@ -1,0 +1,65 @@
+usb_path: /dev/serial/by-id/usb-0658_0200-if00
+config_path: /config/OZW/config
+network_key: !secret zwave_network_key
+polling_interval: 45000
+device_config:
+  light.family_south:
+    polling_intensity: 1
+    refresh_value: true
+    delay: 3
+  light.family_west:
+    polling_intensity: 1
+    refresh_value: true
+    delay: 3
+  light.family_east:
+    polling_intensity: 1
+    refresh_value: true
+    delay: 3
+  light.kitchenette_cans:
+    polling_intensity: 1
+    refresh_value: true
+    delay: 3
+  light.kitchenette_pendant:
+    polling_intensity: 1
+    refresh_value: true
+    delay: 3
+  light.stairway:
+    polling_intensity: 1
+    refresh_value: true
+    delay: 3
+  light.twin:
+    polling_intensity: 1
+    refresh_value: true
+    delay: 3
+  light.play:
+    polling_intensity: 1
+    refresh_value: true
+    delay: 3
+  light.mb_toilet:
+    polling_intensity: 1
+    refresh_value: true
+    delay: 3
+  light.mb_sink:
+    polling_intensity: 1
+    refresh_value: true
+    delay: 3
+  light.mb_shower:
+    polling_intensity: 1
+    refresh_value: true
+    delay: 3
+  light.entry:
+    polling_intensity: 1
+    refresh_value: true
+    delay: 3
+  light.dining:
+    polling_intensity: 1
+    refresh_value: true
+    delay: 3
+  light.basement_bathroom:
+    polling_intensity: 1
+    refresh_value: true
+    delay: 3
+  light.rear_porch:
+    polling_intensity: 1
+    refresh_value: true
+    delay: 3

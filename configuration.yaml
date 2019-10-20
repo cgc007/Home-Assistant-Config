@@ -1,0 +1,158 @@
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+http:
+  base_url: raspberrypi:8123
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+#ios HA app integration
+#ios:
+
+homeassistant:
+  customize: !include customize.yaml
+
+group: !include_dir_merge_list groups/
+light: !include_dir_merge_list light_groups/
+cover: !include_dir_merge_list cover_groups/
+automation: !include_dir_merge_list automations/
+shell_command: !include_dir_named shell_commands/
+script: !include_dir_named scripts/
+scene: !include_dir_merge_list scenes/
+sensor: !include_dir_merge_list sensors/
+input_boolean: !include_dir_named input_boolean/
+frontend:
+  themes: !include_dir_named themes/
+
+zwave: !include zwave.yaml
+
+#ring
+ring:
+  username: !secret ring_username
+  password: !secret ring_password
+
+#cameras
+camera:
+  - platform: familyhub
+    ip_address: '192.168.1.102' #static IP
+  - platform: ring
+
+#sense config
+sense:
+  email: !secret sense_client_id
+  password: !secret sense_client_password
+
+switch:
+  - platform: command_line
+    switches:
+      #toggles Family Room Roku TV
+      play_room_tv_power:
+        command_on: 'curl -X POST http://192.168.1.51:8060/keypress/PowerOn'
+        command_off: 'curl -X POST http://192.168.1.51:8060/keypress/PowerOff'
+        command_state: 'curl -s GET http://192.168.1.51:8060/query/device-info | grep power-mode | sed -e "s:<power-mode>DisplayOff</power-mode>:OFF:" -e "s:<power-mode>PowerOn</power-mode>:ON:"'
+        value_template: '{{ value == "ON" }}'
+      #toggles Play Room Roku TV
+      family_room_tv_power:
+        command_on: 'curl -X POST http://192.168.1.50:8060/keypress/PowerOn'
+        command_off: 'curl -X POST http://192.168.1.50:8060/keypress/PowerOff'
+        command_state: 'curl -s GET http://192.168.1.50:8060/query/device-info | grep power-mode | sed -e "s:<power-mode>DisplayOff</power-mode>:OFF:" -e "s:<power-mode>PowerOn</power-mode>:ON:"'
+        value_template: '{{ value == "ON" }}'
+
+roku:
+  - host: 192.168.1.51 #playroom tv
+  - host: 192.168.1.50 #familyroom tv
+
+notify:
+  - platform: alexa_media
+    name: alexa_media
+
+alexa_media:
+  accounts:
+    - email: !secret amazon_user
+      password: !secret amazon_password
+      url: amazon.com
+
+hacs:
+  token: !secret github_hacs_api_token
+
+device_tracker:
+  - platform: bluetooth_tracker
+    request_rssi: true
+
+#calendar:
+#  - platform: todoist
+#    token: !secret todoist_token
+
+google:
+  client_id: !secret gcal_client_id
+  client_secret: !secret gcal_client_secret
+
+input_text:
+  alexa_announcement_text:
+    name: Announcement Text
+
+#input_select:
+#  lights:
+#    name: Lights
+#  milliseconds:
+#    name: Delay for X Milliseconds
+#    options:
+#      - "200"
+#      - "400"
+#      - "800"
+#      - "1200"
+#      - "1600"
+
+cloud:
+  alexa:
+    filter:
+      include_domains:
+        - cover
+        - light
+        - group
+        - switch
+        - scene
+      exclude_domains:
+        - automation
+        - script
+        - sensor
+        - media_player
+      exclude_entities:
+        - cover.springs_window_fashions_graber_csz1_cellular_shade_switch
+        - cover.springs_window_fashions_graber_csz1_cellular_shade_switch_10
+        - cover.springs_window_fashions_graber_csz1_cellular_shade_switch_11
+        - cover.springs_window_fashions_graber_csz1_cellular_shade_switch_12
+        - cover.springs_window_fashions_graber_csz1_cellular_shade_switch_13
+        - cover.springs_window_fashions_graber_csz1_cellular_shade_switch_14
+        - cover.springs_window_fashions_graber_csz1_cellular_shade_switch_15
+        - cover.springs_window_fashions_graber_csz1_cellular_shade_switch_16
+        - cover.springs_window_fashions_graber_csz1_cellular_shade_switch_2
+        - cover.springs_window_fashions_graber_csz1_cellular_shade_switch_3
+        - cover.springs_window_fashions_graber_csz1_cellular_shade_switch_4
+        - cover.springs_window_fashions_graber_csz1_cellular_shade_switch_5
+        - cover.springs_window_fashions_graber_csz1_cellular_shade_switch_6
+        - cover.springs_window_fashions_graber_csz1_cellular_shade_switch_7
+        - cover.springs_window_fashions_graber_csz1_cellular_shade_switch_8
+        - cover.springs_window_fashions_graber_csz1_cellular_shade_switch_9
+
+logger:
+  default: info
+
+#https://community.home-assistant.io/t/z-wave-graph-without-the-python/64275
+panel_custom:
+  - name: zwavegraph2
+    sidebar_title: ZWave Graph2
+    sidebar_icon: mdi:access-point-network
+    url_path: zwave
+
+tplink:
+  discovery: false
+  switch:
+    - host: 192.168.1.30
+    - host: 192.168.1.31
+
+binary_sensor:
+  - platform: ring

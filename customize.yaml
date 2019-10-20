@@ -1,0 +1,58 @@
+cover.all_blinds:
+  device_class: shade
+cover.basement_blinds:
+  device_class: shade
+cover.common_area_blinds:
+  device_class: shade
+cover.dining_center:
+  device_class: shade
+cover.dining_left:
+  device_class: shade
+cover.dining_right:
+  device_class: shade
+cover.dining_room_blinds:
+  device_class: shade
+cover.family_left:
+  device_class: shade
+cover.family_right:
+  device_class: shade
+cover.family_room_blinds:
+  device_class: shade
+cover.kitchen:
+  device_class: shade
+cover.living_left:
+  device_class: shade
+cover.living_right:
+  device_class: shade
+cover.living_room_blinds:
+  device_class: shade
+cover.magnus_left:
+  device_class: shade
+cover.magnus_right:
+  device_class: shade
+cover.magnus_s_blinds:
+  device_class: shade
+cover.main_blinds:
+  device_class: shade
+cover.master_bedroom_blinds:
+  device_class: shade
+cover.master_left:
+  device_class: shade
+cover.master_right:
+  device_class: shade
+cover.nora_left:
+  device_class: shade
+cover.nora_right:
+  device_class: shade
+cover.nora_s_blinds:
+  device_class: shade
+cover.play:
+  device_class: shade
+cover.twins:
+  device_class: shade
+cover.west_blinds:
+  device_class: shade
+cover.east_blinds:
+  device_class: shade
+
+

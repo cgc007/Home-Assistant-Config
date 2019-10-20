@@ -1,0 +1,10 @@
+- platform: template
+  sensors:
+    somfy_remote_5:
+      friendly_name: "Somfy 5 button"
+      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_vcz1_virtual_cord_remote_control_3','current_power_w') }}"
+      #2019-09-16 01:35:48.654 Info, Node030, Received Central Scene set from node 30: scene id=1 in 0 seconds. Sending event notification.
+      #2019-09-16 01:35:48.654 Warning, Node030, No ValueID created for Scene 1
+
+      #2019-09-16 01:36:16.460 Info, Node030, Received Central Scene set from node 30: scene id=2 in 0 seconds. Sending event notification.
+      #2019-09-16 01:36:16.460 Warning, Node030, No ValueID created for Scene 2

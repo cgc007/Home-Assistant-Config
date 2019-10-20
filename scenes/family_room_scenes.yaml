@@ -1,0 +1,32 @@
+# family_room_scenes
+- name: Family Room Dim
+  entities:
+    light.family_room_lights:
+      brightness: 50
+      state: true
+    light.kitchenette_pendant:
+      brightness: 25
+      state: true
+- name: Family Room Night
+  entities:
+    light.family_room_lights:
+      brightness: 10
+      state: true
+- name: Switch Time
+  entities:
+    light.family_east:
+      state: true
+      brightness: 50
+    light.family_west:
+      state: true
+      brightness: 255
+    light.family_south:
+      state: true
+      brightness: 50
+    cover.family_left:
+      current_position: 0
+    cover.family_right: 
+      current_position: 0
+    switch.family_room_tv_power: on
+    media_player.family_room_tv:
+      source: Receiver

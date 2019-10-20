@@ -1,0 +1,53 @@
+- platform: group
+  name: Family Room Lights
+  entities:
+    - light.family_south
+    - light.family_west
+    - light.family_east
+    - light.kitchenette_cans
+- platform: group
+  name: Basement Lights
+  entities:
+    - light.family_south
+    - light.family_west
+    - light.family_east
+    - light.kitchenette_cans
+    - light.kitchenette_pendant
+    - light.stairway
+    - light.play
+    - light.twin
+- platform: group
+  name: Mainfloor Lights
+  entities:
+    - light.entry
+    - light.mb_toilet
+    - light.mb_sink
+    - light.mb_shower
+    - light.dining
+- platform: group
+  name: Master Bath Lights
+  entities:
+    - light.mb_toilet
+    - light.mb_sink
+    - light.mb_shower
+- platform: group
+  name: All Lights
+  entities:
+    - light.family_south
+    - light.family_west
+    - light.family_east
+    - light.kitchenette_cans
+    - light.kitchenette_pendant
+    - light.stairway
+    - light.twin
+    - light.play
+    - light.mb_toilet
+    - light.mb_sink
+    - light.mb_shower
+    - light.entry
+    - light.dining
+    - light.basement_bathroom
+- platform: group
+  name: Outside Lights
+  entities:
+    - light.rear_porch

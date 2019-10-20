@@ -1,0 +1,5 @@
+sequence:
+  - service: media_player.select_source
+    data:
+      entity_id: media_player.family_room_tv
+      source: Receiver

@@ -1,0 +1,70 @@
+- alias: "Set Echo Dot Volume to Medium after 7pm"
+  trigger:
+    - platform: time
+      at: '19:00:00'
+  action:
+    - service: media_player.volume_set
+      data:
+        entity_id:
+          - media_player.family_room
+          - media_player.living_room
+        volume_level: 0.2
+    - service: media_player.volume_set
+      data:
+        entity_id:
+          - media_player.kitchen
+          - media_player.play_room
+          - media_player.magnus_room
+          - media_player.nora_room
+        volume_level: 0.6
+
+- alias: "Set Echo Dot Volume to Low after 10pm"
+  trigger:
+    - platform: time
+      at: '22:00:00'
+  action:
+    - service: media_player.volume_set
+      data:
+        entity_id:
+          - media_player.family_room
+          - media_player.living_room
+        volume_level: 0.1
+    - service: media_player.volume_set
+      data:
+        entity_id:
+          - media_player.kitchen
+          - media_player.play_room
+          - media_player.magnus_room
+          - media_player.nora_room
+        volume_level: 0.2
+
+- alias: "Set Echo Dot Volume to Medium after 6am"
+  trigger:
+    - platform: time
+      at: '06:00:00'
+  action:
+    - service: media_player.volume_set
+      data:
+        entity_id:
+          - media_player.family_room
+          - media_player.living_room
+        volume_level: 0.2
+    - service: media_player.volume_set
+      data:
+        entity_id:
+          - media_player.kitchen
+          - media_player.play_room
+          - media_player.magnus_room
+          - media_player.nora_room
+        volume_level: 0.6
+
+- alias: "Set Echo Dot Volume for White Noise after 6:15pm"
+  trigger:
+    - platform: time
+      at: '06:15:00'
+  action:
+    - service: media_player.volume_set
+      data:
+        entity_id:
+          - media_player.twins_room
+        volume_level: 0.8

@@ -1,0 +1,8 @@
+- platform: template
+  sensors:
+    computer_power:
+      friendly_name: "Computer Power"
+      value_template: "{{ state_attr('switch.computer','current_power_w') }}"
+    home_theater_power:
+      friendly_name: "Home Theater Power"
+      value_template: "{{ state_attr('switch.home_theater','current_power_w') }}"

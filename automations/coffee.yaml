@@ -1,0 +1,45 @@
+- alias: "Coffee is brewing"
+  trigger: 
+    - platform: state
+      entity_id: binary_sensor.coffee_maker
+      to: 'on'
+      for:
+        minutes: 4
+  action:
+      #enable coffee done check
+    - service: homeassistant.turn_on
+      entity_id: automation.coffee_is_done
+    #- service: notify.discord_bot
+    #  data:
+    #    target: !secret discord_notify_channel_id_general
+    #    message: Coffee has started brewing
+    #    data:
+    #      tag: coffee-start-brewing
+
+- alias: "Coffee is done"
+  initial_state: 'off'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.coffee_maker
+      to: 'off'
+      for:
+        seconds: 15
+  action:
+    - service: homeassistant.turn_off
+      entity_id: automation.coffee_is_done
+    - service: notify.alexa_media
+      data:
+        target: 
+          - media_player.family_room
+          - media_player.living_room
+        #title: "My title for Echo show"
+        data:
+          type: announce
+          #method: all
+        message: "Coffee is now available in the nook."
+    #- service: notify.discord_bot
+    #  data:
+    #    target: !secret discord_notify_channel_id_general
+    #    message: Coffee is done!
+    #    data:
+    #      tag: coffee-done-brewing      

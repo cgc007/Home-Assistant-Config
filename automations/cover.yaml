@@ -1,0 +1,25 @@
+- alias: Bedtime for Nora Blinds
+  trigger:
+    - platform: time
+      at: '18:59:12'
+  action:
+    service: cover.close_cover
+    entity_id: cover.nora_s_blinds
+
+- alias: Bedtime for Magnus Blinds
+  trigger:
+    - platform: time
+      at: '18:59:12'
+  action:
+    service: cover.close_cover
+    entity_id: cover.magnus_s_blinds
+
+- alias: Close blinds at sunset
+  trigger:
+   - platform: numeric_state
+     entity_id: sun.sun
+     value_template: '{{ state.attributes.elevation }}'
+     below: 0
+  action:
+    service: cover.close_cover
+    entity_id: cover.all_blinds

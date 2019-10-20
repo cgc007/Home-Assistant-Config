@@ -1,0 +1,106 @@
+- alias: "Notify at startup"
+  initial_state: 'on'
+  trigger:
+   - platform: homeassistant
+     event: start
+  action:
+    - service: notify.alexa_media
+      data:
+        target: 
+          - media_player.craig_s_alexa_apps
+        #title: "My title for Echo show"
+        data:
+          type: push
+          #method: all
+        message: "HomeAssistant has started" 
+    #service: notify.discord_bot
+    #data:
+    #  target: !secret discord_notify_channel_id_general
+    #  message: HomeAssistant has started
+    #  data:
+    #    tag: 'home-assistant-startup'
+
+- alias: "Notify at stop"
+  initial_state: 'on'
+  trigger:
+   - platform: homeassistant
+     event: shutdown
+  action:
+    - service: notify.alexa_media
+      data:
+        target: 
+          - media_player.craig_s_alexa_apps
+        #title: "My title for Echo show"
+        data:
+          type: push
+          #method: all
+        message: "HomeAssistant has stopped"
+    #service: notify.discord_bot
+    #data:
+    #  target: !secret discord_notify_channel_id_general
+    #  message: HomeAssistant has stopped  
+    #  data:
+    #    tag: 'home-assistant-shutdown'
+
+- alias: "Z-wave Network is starting"
+  trigger:
+    platform: event
+    event_type: zwave.network_start
+  action:
+    - service: notify.alexa_media
+      data:
+        target: 
+          - media_player.craig_s_alexa_apps
+        #title: "My title for Echo show"
+        data:
+          type: push
+          #method: all
+        message: "Z-Wave Network is starting"
+    #service: notify.discord_bot
+    #data:
+    #  target: !secret discord_notify_channel_id_general
+    #  message: Z-Wave Network is Starting  
+    #  data:
+    #    tag: 'zwave-network'
+
+- alias: "Z-wave Network is stopping"
+  trigger:
+    platform: event
+    event_type: zwave.network_stop
+  action:
+    - service: notify.alexa_media
+      data:
+        target: 
+          - media_player.craig_s_alexa_apps
+        #title: "My title for Echo show"
+        data:
+          type: push
+          #method: all
+        message: "Z-Wave Network is stopping"
+    #service: notify.discord_bot
+    #data:
+    #  target: !secret discord_notify_channel_id_general
+    #  message: Z-Wave Network is stopping  
+    #  data:
+    #    tag: 'zwave-network'
+
+- alias: "Z-wave Network is ready"
+  trigger:
+    platform: event
+    event_type: zwave.network_ready
+  action:
+    - service: notify.alexa_media
+      data:
+        target: 
+          - media_player.craig_s_alexa_apps
+        #title: "My title for Echo show"
+        data:
+          type: push
+          #method: all
+        message: "Z-Wave Network is Ready"
+    #service: notify.discord_bot
+    #data:
+    #  target: !secret discord_notify_channel_id_general
+    #  message: Z-Wave Network is Ready  
+    #  data:
+    #    tag: 'zwave-network'

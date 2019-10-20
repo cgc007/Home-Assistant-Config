@@ -1,0 +1,104 @@
+- platform: group
+  name: Dining Room Blinds
+  entities:
+    - cover.dining_left
+    - cover.dining_center
+    - cover.dining_right
+- platform: group
+  name: Living Room Blinds
+  entities:
+    - cover.living_left
+    - cover.living_right
+- platform: group
+  name: Nora's Blinds
+  entities:
+    - cover.nora_left
+    - cover.nora_right
+- platform: group
+  name: Magnus's Blinds
+  entities:
+    - cover.magnus_left
+    - cover.magnus_right
+- platform: group
+  name: Master Bedroom Blinds
+  entities:
+    - cover.master_left
+    - cover.master_right
+- platform: group
+  name: Family Room Blinds
+  entities:
+    - cover.family_left
+    - cover.family_right
+- platform: group
+  name: Basement Blinds
+  entities:
+    - cover.family_left
+    - cover.family_right
+    - cover.play
+    - cover.nursery
+- platform: group
+  name: Main Blinds
+  entities:
+    - cover.master_left
+    - cover.master_right
+    - cover.magnus_left
+    - cover.magnus_right
+    - cover.dining_left
+    - cover.dining_center
+    - cover.dining_right
+    - cover.living_left
+    - cover.living_right
+    - cover.nora_left
+    - cover.nora_right
+- platform: group
+  name: Common Area Blinds
+  entities:
+  #  - cover.family_left
+  #  - cover.family_right
+  #  - cover.dining_left
+  #  - cover.dining_center
+  #  - cover.dining_right
+    - cover.living_left
+    - cover.living_right
+    - cover.kitchen
+- platform: group
+  name: East Blinds
+  entities:
+    - cover.family_left
+    - cover.family_right
+    - cover.master_left
+    - cover.master_right
+    - cover.dining_left
+    - cover.dining_center
+    - cover.dining_right
+    - cover.living_left
+    - cover.living_right
+    - cover.kitchen
+    - cover.nursery
+- platform: group
+  name: West Blinds
+  entities:
+    - cover.play
+    - cover.magnus_left
+    - cover.magnus_right
+    - cover.nora_left
+    - cover.nora_right
+- platform: group
+  name: All Blinds
+  entities:
+    - cover.family_left
+    - cover.family_right
+    - cover.play
+    - cover.master_left
+    - cover.master_right
+    - cover.magnus_left
+    - cover.magnus_right
+    - cover.dining_left
+    - cover.dining_center
+    - cover.dining_right
+    - cover.living_left
+    - cover.living_right
+    - cover.nora_left
+    - cover.nora_right
+    - cover.kitchen
+    - cover.twin
