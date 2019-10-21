@@ -1,10 +1,8 @@
 - alias: Kitchenette Cabinet Light Follow Mode of Cans (ON)
   initial_state: 'on'
   trigger:
-#    - platform: state
-#      entity_id: light.kitchenette_cans
-    - platform: template
-      value_template: "{{ state_attr('light.kitchenette_cans', 'brightness') }}"
+    - platform: state
+      entity_id: light.kitchenette_cans
   action:
     service: light.turn_on
     data:
