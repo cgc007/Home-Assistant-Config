@@ -1,0 +1,35 @@
+- alias: Motion Detected at the Front Door (Ring)
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.ring_front_door_motion
+      to: 'Detected'
+  action:
+    - service: notify.alexa_media
+      data:
+        target: 
+          - media_player.craig_s_alexa_apps
+          #- media_player.heidi_s_alexa_apps
+        #title: "My title for Echo show"
+        data:
+          type: push
+          #method: all
+        message: "Front Door Motion"
+
+- alias: Ding Detected at the Front Door (Ring)
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.ring_front_door_ding
+      to: 'Detected'
+  action:
+    - service: notify.alexa_media
+      data:
+        target: 
+          - media_player.craig_s_alexa_apps
+          #- media_player.heidi_s_alexa_apps
+        #title: "My title for Echo show"
+        data:
+          type: push
+          #method: all
+        message: "Front Door Ding"
