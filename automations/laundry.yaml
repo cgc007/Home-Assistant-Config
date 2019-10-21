@@ -5,7 +5,7 @@
       entity_id: binary_sensor.dryer
       to: 'off'
       for:
-        minutes: 6
+        minutes: 15
   action:
     - service: notify.ios_heidis_iphone_7
       data:
