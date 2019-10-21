@@ -1,0 +1,17 @@
+- alias: "Basement Bathroom Occupied Light"
+  trigger: 
+    - platform: state
+      entity_id: light.basement_bathroom
+      to: 'on'
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.basement_bathroom_occupied
+
+- alias: "Basement Bathroom Not Occupied Light"
+  trigger: 
+    - platform: state
+      entity_id: light.basement_bathroom
+      to: 'off'
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.basement_bathroom_occupied
