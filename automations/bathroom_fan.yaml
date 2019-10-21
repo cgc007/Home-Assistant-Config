@@ -9,6 +9,17 @@
     service: switch.turn_off
     entity_id: switch.master_bathroom_fan
 
+- alias: Master Bathroom Fan Timer
+  trigger:
+    - platform: state
+      entity_id: switch.master_bathroom_fan
+      to: 'on'
+      for:
+        minutes: 60
+  action:
+    service: switch.turn_off
+    entity_id: switch.master_bathroom_fan
+
 - alias: Basement Bathroom Fan Timer
   trigger:
     - platform: state
@@ -20,6 +31,17 @@
     service: switch.turn_off
     entity_id: switch.basement_bathroom_fan
 
+- alias: Basement Bathroom Fan Timer Long
+  trigger:
+    - platform: state
+      entity_id: switch.basement_bathroom_fan
+      to: 'on'
+      for:
+        minutes: 60
+  action:
+    service: switch.turn_off
+    entity_id: switch.basement_bathroom_fan
+
 - alias: Hall Bathroom Fan Timer
   trigger:
     - platform: state
@@ -27,6 +49,17 @@
       to: 'off'
       for:
         minutes: 15
+  action:
+    service: switch.turn_off
+    entity_id: switch.hall_bath_fan
+
+- alias: Hall Bathroom Fan Timer Long
+  trigger:
+    - platform: state
+      entity_id: switch.hall_bath_fan
+      to: 'on'
+      for:
+        minutes: 60
   action:
     service: switch.turn_off
     entity_id: switch.hall_bath_fan
