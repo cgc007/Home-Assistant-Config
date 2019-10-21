@@ -7,6 +7,9 @@
       for:
         minutes: 6
   action:
+    - service: notify.ios_heidis_iphone_7
+      data:
+        message: "Dryer: Done"
     - service: notify.alexa_media
       data:
         target: 
@@ -23,7 +26,7 @@
       data:
         target: 
           - media_player.craig_s_alexa_apps
-          - media_player.heidi_s_alexa_apps
+          #- media_player.heidi_s_alexa_apps
         #title: "My title for Echo show"
         data:
           type: push
@@ -45,6 +48,9 @@
       for:
         minutes: 4
   action:
+    - service: notify.ios_heidis_iphone_7
+      data:
+        message: "Washer: Done"
     - service: notify.alexa_media
       data:
         target: 
@@ -61,7 +67,7 @@
       data:
         target: 
           - media_player.craig_s_alexa_apps
-          - media_player.heidi_s_alexa_apps
+          #- media_player.heidi_s_alexa_apps
         #title: "My title for Echo show"
         data:
           type: push
