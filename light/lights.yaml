@@ -1,0 +1,9 @@
+- platform: switch
+  name: Laundry
+  entity_id: switch.laundry
+- platform: switch
+  name: Pantry
+  entity_id: switch.pantry
+- platform: switch
+  name: Mud
+  entity_id: switch.mud

@@ -16,7 +16,7 @@ homeassistant:
   customize: !include customize.yaml
 
 group: !include_dir_merge_list groups/
-light: !include_dir_merge_list light_groups/
+light: !include_dir_merge_list light/
 cover: !include_dir_merge_list cover_groups/
 automation: !include_dir_merge_list automations/
 shell_command: !include_dir_named shell_commands/
