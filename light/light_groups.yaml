@@ -26,6 +26,8 @@
     - light.mb_sink
     - light.mb_shower
     - light.dining
+    - light.mud
+    - light.pantry
 - platform: group
   name: Master Bath Lights
   entities:
@@ -50,6 +52,9 @@
     - light.entry
     - light.dining
     - light.basement_bathroom
+    - light.mud
+    - light.pantry
+    - light.laundry
 - platform: group
   name: Outside Lights
   entities:
