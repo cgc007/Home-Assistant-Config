@@ -1,0 +1,57 @@
+- alias: "Dryer has stopped"
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.dryer
+      to: 'off'
+      for:
+        minutes: 6
+  action:
+    - service: notify.alexa_media
+      data:
+        target: 
+          - media_player.family_room
+          - media_player.living_room
+          - media_player.craig_s_alexa_apps
+          - media_player.heidi_s_alexa_apps
+          - media_player.kitchen
+        #title: "My title for Echo show"
+        data:
+          type: announce
+          #method: all
+        message: "The Dryer has finished."
+    #- service: notify.discord_bot
+    #  data:
+    #    target: !secret discord_notify_channel_id_general
+    #    message: Dryer is done  
+    #    data:
+    #      tag: 'dryer-stopped'
+
+- alias: "Washer has stopped"
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.washer
+      to: 'off'
+      for:
+        minutes: 4
+  action:
+    - service: notify.alexa_media
+      data:
+        target: 
+          - media_player.family_room
+          - media_player.living_room
+          - media_player.craig_s_alexa_apps
+          - media_player.heidi_s_alexa_apps
+          - media_player.kitchen
+        #title: "My title for Echo show"
+        data:
+          type: announce
+          #method: all
+        message: "The Washing machine has finished."
+    #- service: notify.discord_bot
+    #  data:
+    #    target: !secret discord_notify_channel_id_general
+    #    message: Washer is done  
+    #    data:
+    #      tag: 'washer-stopped'
