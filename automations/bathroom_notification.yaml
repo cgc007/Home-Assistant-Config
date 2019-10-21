@@ -1,6 +1,6 @@
 - alias: Hall Bathroom at Night Notification
   trigger:
-    - plaform: state
+    - platform: state
       entity_id: input_boolean.hall_bathroom_occupied
       to: 'on'
       for:
