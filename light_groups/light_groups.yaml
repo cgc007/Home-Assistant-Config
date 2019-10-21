@@ -5,6 +5,7 @@
     - light.family_west
     - light.family_east
     - light.kitchenette_cans
+    - light.kitchenette_cabinet
 - platform: group
   name: Basement Lights
   entities:
@@ -13,6 +14,7 @@
     - light.family_east
     - light.kitchenette_cans
     - light.kitchenette_pendant
+    - light.kitchenette_cabinet
     - light.stairway
     - light.play
     - light.twin
@@ -38,6 +40,7 @@
     - light.family_east
     - light.kitchenette_cans
     - light.kitchenette_pendant
+    - light.kitchenette_cabinet
     - light.stairway
     - light.twin
     - light.play
