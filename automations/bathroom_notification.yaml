@@ -1,0 +1,29 @@
+- alias: Hall Bathroom at Night Notification
+  trigger:
+    - plaform: state
+      entity_id: input_boolean.hall_bathroom_occupied
+      to: 'on'
+      for:
+        minutes: 5
+#    - platform: time
+#      at: '18:59:12'
+
+#Only operate if it's between 2000-0800
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        after: '20:00:00'
+      - condition: time
+        before: '08:00:00'
+  action:
+    - service: notify.alexa_media
+      data:
+        target: 
+          - media_player.craig_s_alexa_apps
+          - media_player.heidi_s_alexa_apps
+        #title: "My title for Echo show"
+        data:
+          type: push
+          #method: all
+        message: "Hall Bathroom has someone in it for more than 5 minutes"
