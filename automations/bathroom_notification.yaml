@@ -17,11 +17,14 @@
       - condition: time
         before: '08:00:00'
   action:
+    - service: notify.ios_heidis_iphone_7
+      data:
+        message: "Hall Bathroom: Occupied >5m"
     - service: notify.alexa_media
       data:
         target: 
           - media_player.craig_s_alexa_apps
-          - media_player.heidi_s_alexa_apps
+          #- media_player.heidi_s_alexa_apps
         #title: "My title for Echo show"
         data:
           type: push
@@ -38,11 +41,14 @@
 #    - platform: time
 #      at: '18:59:12'
   action:
+    - service: notify.ios_heidis_iphone_7
+      data:
+        message: "Hall Bathroom: Occupied >15m"
     - service: notify.alexa_media
       data:
         target: 
           - media_player.craig_s_alexa_apps
-          - media_player.heidi_s_alexa_apps
+          #- media_player.heidi_s_alexa_apps
         #title: "My title for Echo show"
         data:
           type: push
@@ -68,11 +74,14 @@
       - condition: time
         before: '08:00:00'
   action:
+    - service: notify.ios_heidis_iphone_7
+      data:
+        message: "Basement Bathroom: Occupied >5m"
     - service: notify.alexa_media
       data:
         target: 
           - media_player.craig_s_alexa_apps
-          - media_player.heidi_s_alexa_apps
+          #- media_player.heidi_s_alexa_apps
         #title: "My title for Echo show"
         data:
           type: push
@@ -91,11 +100,14 @@
 
 #Only operate if it's between 2000-0800
   action:
+    - service: notify.ios_heidis_iphone_7
+      data:
+        message: "Basement Bathroom: Occupied >15m"
     - service: notify.alexa_media
       data:
         target: 
           - media_player.craig_s_alexa_apps
-          - media_player.heidi_s_alexa_apps
+          #- media_player.heidi_s_alexa_apps
         #title: "My title for Echo show"
         data:
           type: push
