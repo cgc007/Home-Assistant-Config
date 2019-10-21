@@ -1,0 +1,27 @@
+#- alias: "Family Room Computer in use"
+#  trigger: 
+#    - platform: numeric_state
+#      entity_id: sensor.computer_power
+#      above: 140
+#  action:
+#    - service: input_boolean.turn_on
+#      entity_id: input_boolean.family_room_occupied
+#
+#- alias: "Home Theater is On"
+#  trigger: 
+#    - platform: numeric_state
+#      entity_id: sensor.home_theater_power
+#      above: 140
+#  action:
+#    - service: input_boolean.turn_on
+#      entity_id: input_boolean.family_room_occupied
+#
+#- alias: "Family Room TV On"
+#  trigger: 
+#  action:
+#- alias: "Family Room Lights On"
+#  trigger: 
+#  action:
+#- alias: "everything in family room is off"
+#  trigger: 
+#  action:

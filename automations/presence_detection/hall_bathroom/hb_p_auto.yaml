@@ -1,0 +1,10 @@
+- alias: "Hall Bathroom Occupied Light"
+  trigger: 
+    - platform: state
+      entity_id: light.hall_bath
+      to: 'on'
+      for:
+        minutes: 15
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.hall_bathroom_occupied
