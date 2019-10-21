@@ -12,12 +12,20 @@
         target: 
           - media_player.family_room
           - media_player.living_room
-          - media_player.craig_s_alexa_apps
-          - media_player.heidi_s_alexa_apps
           - media_player.kitchen
         #title: "My title for Echo show"
         data:
           type: announce
+          #method: all
+        message: "The Dryer has finished."
+    - service: notify.alexa_media
+      data:
+        target: 
+          - media_player.craig_s_alexa_apps
+          - media_player.heidi_s_alexa_apps
+        #title: "My title for Echo show"
+        data:
+          type: push
           #method: all
         message: "The Dryer has finished."
     #- service: notify.discord_bot
@@ -41,14 +49,22 @@
         target: 
           - media_player.family_room
           - media_player.living_room
-          - media_player.craig_s_alexa_apps
-          - media_player.heidi_s_alexa_apps
           - media_player.kitchen
         #title: "My title for Echo show"
         data:
           type: announce
           #method: all
         message: "The Washing machine has finished."
+    - service: notify.alexa_media
+      data:
+        target: 
+          - media_player.craig_s_alexa_apps
+          - media_player.heidi_s_alexa_apps
+        #title: "My title for Echo show"
+        data:
+          type: push
+          #method: all
+        message: "The Washing machine has finished."        
     #- service: notify.discord_bot
     #  data:
     #    target: !secret discord_notify_channel_id_general
