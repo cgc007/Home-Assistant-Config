@@ -7,7 +7,7 @@
     - service: notify.alexa_media
       data:
         target: 
-          - media_player.family_room
+          - media_player.everywhere
           #- media_player.living_room
         #title: "My title for Echo show"
         data:

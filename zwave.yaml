@@ -63,3 +63,7 @@ device_config:
     polling_intensity: 1
     refresh_value: true
     delay: 3
+  light.hall_bath:
+    polling_intensity: 1
+    refresh_value: true
+    delay: 3
