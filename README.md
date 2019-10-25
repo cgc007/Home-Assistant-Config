@@ -2,6 +2,10 @@ This is my Home Assistant Config. There are many like it, but this one is mine.
 
 #Below shamelessly stolen from ludeeus
 
+## Statistics from the instance
+
+Description | Value
+-- | --
 Entities in the [`automation`](https://www.home-assistant.io/components/automation) domain | 42
 Entities in the [`binary_sensor`](https://www.home-assistant.io/components/binary_sensor) domain | 34
 Entities in the [`calendar`](https://www.home-assistant.io/components/calendar) domain | 25
