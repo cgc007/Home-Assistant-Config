@@ -1,21 +1,9 @@
-- alias: Master Bathroom Fan Timer
+- alias: Bathroom Unoccupied Fan Off
   trigger:
     - platform: state
       entity_id: light.master_bath_lights
       to: 'off'
-      for:
-        minutes: 15
-  action:
-    service: switch.turn_off
-    entity_id: switch.master_bathroom_fan
-
-- alias: Master Bathroom Fan Timer
-  trigger:
-    - platform: state
-      entity_id: switch.master_bathroom_fan
-      to: 'on'
-      for:
-        minutes: 60
+      for: '00:15:00'
   action:
     service: switch.turn_off
     entity_id: switch.master_bathroom_fan
@@ -25,19 +13,7 @@
     - platform: state
       entity_id: light.basement_bathroom
       to: 'off'
-      for:
-        minutes: 15
-  action:
-    service: switch.turn_off
-    entity_id: switch.basement_bathroom_fan
-
-- alias: Basement Bathroom Fan Timer Long
-  trigger:
-    - platform: state
-      entity_id: switch.basement_bathroom_fan
-      to: 'on'
-      for:
-        minutes: 60
+      for: '00:15:00'
   action:
     service: switch.turn_off
     entity_id: switch.basement_bathroom_fan
@@ -47,19 +23,28 @@
     - platform: state
       entity_id: light.hall_bath
       to: 'off'
-      for:
-        minutes: 15
+      for: '00:15:00'
   action:
     service: switch.turn_off
     entity_id: switch.hall_bath_fan
-
-- alias: Hall Bathroom Fan Timer Long
+    
+- alias: Fan Timers
   trigger:
+    - platform: state
+      entity_id: switch.master_bathroom_fan
+      to: 'on'
+      for: '00:60:00'
+    - platform: state
+      entity_id: switch.basement_bathroom_fan
+      to: 'on'
+      for: '00:60:00'
     - platform: state
       entity_id: switch.hall_bath_fan
       to: 'on'
-      for:
-        minutes: 60
+      for: '00:60:00'
   action:
     service: switch.turn_off
-    entity_id: switch.hall_bath_fan
+    data_template:
+      # Whichever entity triggers the automation we want to turn off THAT entity, not the others.
+      entity_id: "{{ trigger.entity_id }}"
+
