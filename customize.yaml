@@ -54,5 +54,9 @@ cover.west_blinds:
   device_class: shade
 cover.east_blinds:
   device_class: shade
-
-
+sensor.computer_power:
+  device_class: power
+  unit_of_measurement: "watt"
+sensor.home_theater_power:
+  device_class: power
+  unit_of_measurement: "watt"
