@@ -1,6 +1,6 @@
 This is my Home Assistant Config. There are many like it, but this one is mine.
 
-#Below shamelessly stolen from ludeeus
+The statistics idea is shamelessly stolen from [`ludeeus`](https://github.com/ludeeus/Home-Assistant-Config/blob/master/README.md)
 
 ## Statistics from the instance
 
