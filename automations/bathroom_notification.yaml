@@ -18,7 +18,8 @@
   action:
     - service: notify.ios_heidis_iphone_7
       data:
-        message: "{{ trigger.entity_id.title()|replace("_"," ")|replace(" Occupied","") }} has someone in it for more than 5 minutes
+        data_template:
+          message: "{{ trigger.entity_id.title()|replace("_"," ")|replace(" Occupied","") }} has someone in it for more than 5 minutes
     - service: notify.alexa_media
       data:
         target: 
@@ -42,6 +43,7 @@
   action:
     - service: notify.ios_heidis_iphone_7
       data_template:
+        data:
           message: "{{ trigger.entity_id.title()|replace("_"," ")|replace(" Occupied","") }} has someone in it for more than 15 minutes
     - service: notify.alexa_media
       data:

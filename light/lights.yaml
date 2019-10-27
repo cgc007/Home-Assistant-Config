@@ -7,3 +7,9 @@
 - platform: switch
   name: Mud
   entity_id: switch.mud
+- platform: switch
+  name: Garage Entry
+  entity_id: switch.garage_entry
+- platform: switch
+  name: Garage
+  entity_id: switch.garage

@@ -156,3 +156,6 @@ tplink:
 
 binary_sensor:
   - platform: ring
+
+ifttt:
+  key: !secret ifttt_api_key
