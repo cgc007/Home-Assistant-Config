@@ -10,7 +10,7 @@
       entity_id: light.pantry
       to: 'on'
   action:
-    service: switch.turn_on
+    service: light.turn_on
     entity_id: light.garage_entry
 
 - alias: Turn Garage Entry Off
@@ -37,5 +37,5 @@
         entity_id: light.mud
         state: 'off'
   action:
-    service: switch.turn_off
+    service: light.turn_off
     entity_id: light.garage_entry
