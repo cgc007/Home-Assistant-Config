@@ -1,0 +1,47 @@
+- alias: Turn Garage Entry On
+  trigger:
+    - platform: state
+      entity_id: light.garage
+      to: 'on'
+      from: 'off'
+    - platform: state
+      entity_id: light.mud
+      to: 'on'
+      from: 'off'
+    - platform: state
+      entity_id: light.pantry
+      to: 'on'
+      from: 'off'
+  action:
+    service: switch.turn_on
+    entity_id: light.garage_entry
+
+- alias: Turn Garage Entry Off
+  trigger:
+    - platform: state
+      entity_id: light.garage
+      to: 'off'
+      from: 'on'
+    - platform: state
+      entity_id: light.mud
+      to: 'off'
+      from: 'on'
+    - platform: state
+      entity_id: light.pantry
+      to: 'off'
+      from: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: light.garage
+        state: 'off'
+      - condition: state
+        entity_id: light.laundry
+        state: 'off'
+      - condition: state
+        entity_id: light.mud
+        state: 'off'
+  action:
+    service: switch.turn_off
+    entity_id: light.garage_entry

@@ -19,7 +19,8 @@
     - service: notify.ios_heidis_iphone_7
       data:
         data_template:
-          message: "{{ trigger.entity_id.title() }} has someone in it for more than 5 minutes" #|replace("_"," ")|replace(" Occupied","")
+          message: >-
+            {{ trigger.entity_id.title()|replace("_"," ")|replace(" Occupied","") }} has someone in it for more than 5 minutes
     - service: notify.alexa_media
       data:
         target: 
@@ -27,7 +28,8 @@
         data:
           type: push
         data_template:
-          message: "{{ trigger.entity_id.title() }} has someone in it for more than 5 minutes" #|replace("_"," ")|replace(" Occupied","")
+          message: >-
+            {{ trigger.entity_id.title()|replace("_"," ")|replace(" Occupied","") }} has someone in it for more than 5 minutes
 
 - alias: Bathroom Anytime Notification
   trigger:
@@ -43,7 +45,8 @@
     - service: notify.ios_heidis_iphone_7
       data_template:
         data:
-          message: "{{ trigger.entity_id.title() }} has someone in it for more than 15 minutes" #|replace("_"," ")|replace(" Occupied","")
+          message: >-
+            {{ trigger.entity_id.title()|replace("_"," ")|replace(" Occupied","") }} has someone in it for more than 15 minutes
     - service: notify.alexa_media
       data:
         target: 
@@ -51,5 +54,6 @@
         data:
           type: push
         data_template:
-          message: "{{ trigger.entity_id.title() }} has someone in it for more than 15 minutes" #|replace("_"," ")|replace(" Occupied","")
+          message: >-
+            {{ trigger.entity_id.title()|replace("_"," ")|replace(" Occupied","") }} has someone in it for more than 15 minutes
 
