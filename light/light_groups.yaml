@@ -28,6 +28,8 @@
     - light.dining
     - light.mud
     - light.pantry
+    - light.garage
+    - light.garage_entry
 - platform: group
   name: Master Bath Lights
   entities:
@@ -55,7 +57,10 @@
     - light.mud
     - light.pantry
     - light.laundry
+    - light.garage
+    - light.garage_entry
 - platform: group
   name: Outside Lights
   entities:
     - light.rear_porch
+    - light.front_outside
