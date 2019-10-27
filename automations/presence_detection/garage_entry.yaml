@@ -3,15 +3,12 @@
     - platform: state
       entity_id: light.garage
       to: 'on'
-      from: 'off'
     - platform: state
       entity_id: light.mud
       to: 'on'
-      from: 'off'
     - platform: state
       entity_id: light.pantry
       to: 'on'
-      from: 'off'
   action:
     service: switch.turn_on
     entity_id: light.garage_entry
@@ -21,15 +18,12 @@
     - platform: state
       entity_id: light.garage
       to: 'off'
-      from: 'on'
     - platform: state
       entity_id: light.mud
       to: 'off'
-      from: 'on'
     - platform: state
       entity_id: light.pantry
       to: 'off'
-      from: 'on'
   condition:
     condition: and
     conditions:
