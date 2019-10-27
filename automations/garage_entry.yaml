@@ -18,12 +18,15 @@
     - platform: state
       entity_id: light.garage
       to: 'off'
+      for: '00:00:03'
     - platform: state
       entity_id: light.mud
       to: 'off'
+      for: '00:00:03'
     - platform: state
       entity_id: light.pantry
       to: 'off'
+      for: '00:00:03'
   condition:
     condition: and
     conditions:
