@@ -15,4 +15,4 @@
         data:
           type: announce
           #method: all
-        message: "Motion Detected in the Garage"
+          message: "Motion Detected in the Garage"
