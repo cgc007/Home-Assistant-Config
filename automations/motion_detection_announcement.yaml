@@ -1,0 +1,18 @@
+- alias: "Motion Detected in the Garage"
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: sensor.garage_motion
+      to: '8'
+  action:
+    - service: notify.alexa_media
+      data:
+        target: 
+          - media_player.family_room
+          - media_player.living_room
+          - media_player.kitchen
+        #title: "My title for Echo show"
+        data:
+          type: announce
+          #method: all
+        message: "Motion Detected in the Garage"
