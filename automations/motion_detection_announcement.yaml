@@ -17,7 +17,8 @@
         message: "Motion Detected in the Garage"
 
 - alias: "Motion Detected in the Laundry"
-  initial_state: 'on'
+#This is primarily used for testing
+  initial_state: 'off'
   trigger:
     - platform: numeric_state
       entity_id: sensor.laundry_motion
