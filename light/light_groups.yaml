@@ -18,6 +18,7 @@
     - light.stairway
     - light.play
     - light.twin
+    - light.laundry
 - platform: group
   name: Mainfloor Lights
   entities:
