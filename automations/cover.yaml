@@ -21,5 +21,8 @@
      value_template: '{{ state.attributes.elevation }}'
      below: 0
   action:
-    service: cover.close_cover
-    entity_id: cover.all_blinds
+    - service: cover.close_cover
+      entity_id: cover.east_blinds
+    - delay: '00:00:15'
+    - service: cover.close_cover
+      entity_id: cover.west_blinds
