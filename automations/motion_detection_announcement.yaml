@@ -16,7 +16,7 @@
           #method: all
         message: "Motion Detected in the Garage"
 
-- alias: "Motion Detected in the Garage"
+- alias: "Motion Detected in the Laundry"
   initial_state: 'on'
   trigger:
     - platform: numeric_state
