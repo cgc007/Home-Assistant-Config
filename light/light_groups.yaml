@@ -19,8 +19,9 @@
     - light.play
     - light.twin
     - light.laundry
+    - light.basement_bathroom
 - platform: group
-  name: Mainfloor Lights
+  name: Upstairs Lights
   entities:
     - light.entry
     - light.mb_toilet
@@ -31,6 +32,13 @@
     - light.pantry
     - light.garage
     - light.garage_entry
+    - light.living_room_fan_light
+    - light.magnus_fan_light
+    - light.master_bedroom_fan_light
+- platform: group
+  name: Living Room Lights
+  entities:
+    - light.living_room_fan_light
 - platform: group
   name: Master Bath Lights
   entities:
@@ -49,17 +57,21 @@
     - light.stairway
     - light.twin
     - light.play
+    - light.magnus_fan_light
+    - light.master_bedroom_fan_light
     - light.mb_toilet
     - light.mb_sink
     - light.mb_shower
+    - light.hall_bath
+    - light.basement_bathroom
     - light.entry
     - light.dining
-    - light.basement_bathroom
     - light.mud
     - light.pantry
     - light.laundry
     - light.garage
     - light.garage_entry
+    - light.living_room_fan_light
 - platform: group
   name: Outside Lights
   entities:
