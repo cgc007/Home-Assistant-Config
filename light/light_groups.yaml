@@ -46,6 +46,19 @@
     - light.mb_sink
     - light.mb_shower
 - platform: group
+  name: Common Area Lights
+  entities:
+    - light.family_south
+    - light.family_west
+    - light.family_east
+    - light.kitchenette_cans
+    - light.kitchenette_pendant
+    - light.kitchenette_cabinet
+    - light.stairway
+    - light.entry
+    - light.dining
+    - light.living_room_fan_light
+- platform: group
   name: All Lights
   entities:
     - light.family_south
