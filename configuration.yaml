@@ -86,9 +86,9 @@ device_tracker:
 #  - platform: todoist
 #    token: !secret todoist_token
 
-google:
-  client_id: !secret gcal_client_id
-  client_secret: !secret gcal_client_secret
+#google:
+#  client_id: !secret gcal_client_id
+#  client_secret: !secret gcal_client_secret
 
 input_text:
   alexa_announcement_text:
