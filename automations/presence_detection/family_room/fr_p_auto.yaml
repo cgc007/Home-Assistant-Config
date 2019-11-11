@@ -1,12 +1,12 @@
-#- alias: "Family Room Computer in use"
-#  trigger: 
-#    - platform: numeric_state
-#      entity_id: sensor.computer_power
-#      above: 140
-#  action:
-#    - service: input_boolean.turn_on
-#      entity_id: input_boolean.family_room_occupied
-#
+- alias: "Family Room Computer in use"
+  trigger: 
+    - platform: numeric_state
+      entity_id: sensor.computer_power
+      above: 30
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.family_room_occupied
+
 #- alias: "Home Theater is On"
 #  trigger: 
 #    - platform: numeric_state
@@ -25,3 +25,19 @@
 #- alias: "everything in family room is off"
 #  trigger: 
 #  action:
+
+- alias: "Presence detected, if lights off, turn lights to night mode"
+  trigger:
+    - platform: state
+      entity_id: input_boolean.family_room_occupied
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: template
+        value_template: '{{ state_attr("light.family_room_lights","brightness") == 0 }}' 
+      - condition: template
+        value_template: '{{ state_attr("sun.sun", "elevation") < 0 }}' #After sunset, before sunrise
+  action:
+    - service: scene.turn_on
+      entity_id: scene.family_room_dim
