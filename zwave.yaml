@@ -67,3 +67,7 @@ device_config:
     polling_intensity: 1
     refresh_value: true
     delay: 3
+  light.front_outside:
+    polling_intensity: 1
+    refresh_value: true
+    delay: 3
