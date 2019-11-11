@@ -40,4 +40,4 @@
         value_template: '{{ state_attr("sun.sun", "elevation") < 0 }}' #After sunset, before sunrise
   action:
     - service: scene.turn_on
-      entity_id: scene.family_room_dim
+      entity_id: scene.family_room_night
