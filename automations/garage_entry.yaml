@@ -40,11 +40,14 @@
     service: light.turn_off
     entity_id: light.garage_entry
 
-- alias: Turn Front Outside Lights on when night after garage door opened
+- alias: Turn Front Outside Lights on when night after event
 #This automation will turn the front outside light on for 15m after the garage door opens if it's nighttime
   trigger:
     - platform: state
       entity_id: binary_sensor.garage_door
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.ring_front_door_motion
       to: 'on'
   condition:
     condition: and
@@ -60,14 +63,18 @@
     - service: homeassistant.turn_on
       entity_id: automation.turn_front_outside_lights_off_when_night_after_garage_door_closed
 
-- alias: Turn Front Outside Lights off when night after garage door closed
+- alias: Turn Front Outside Lights off when night after event
 #This automation will turn the front outside light off after 15m after the garage door closes
   initial_state: 'off'
   trigger:
     - platform: state
       entity_id: binary_sensor.garage_door
       to: 'off'
-      for: '00:15:00' 
+      for: '00:15:00'
+    - platform: state
+      entity_id: binary_sensor.ring_front_door_motion
+      to: 'off'
+      for: '00:15:00'
   condition: 
     - condition: state
       entity_id: light.front_outside
