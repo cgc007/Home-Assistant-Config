@@ -41,3 +41,30 @@
   action:
     - service: scene.turn_on
       entity_id: scene.family_room_night
+
+- alias: "Family Room not in use"
+  trigger: 
+    - platform: numeric_state
+      entity_id: sensor.computer_power
+      below: 30
+#NEED more things to trigger off of
+  condition:
+    condition: and
+    conditions:
+      - condition: template
+        value_template: '{{ state_attr("light.family_room_lights","brightness") == 0 }}'
+      - condition: template
+        value_template: '{{ states("media_player.family_room_tv") == "off" }}'
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.family_room_occupied
+
+#- alias: "Family Room turn lights off after 10m of unoccupied"
+#  trigger: 
+#    - platform: state
+#      entity_id: input_boolean.family_room_occupied
+#      to: 'off'
+#      for: '00:10:00'
+#  action:
+#    - service: input_boolean.turn_off
+#      entity_id: input_boolean.family_room_occupied

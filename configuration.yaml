@@ -75,9 +75,6 @@ alexa_media:
       password: !secret amazon_password
       url: amazon.com
 
-hacs:
-  token: !secret github_hacs_api_token
-
 device_tracker:
   - platform: bluetooth_tracker
     request_rssi: true

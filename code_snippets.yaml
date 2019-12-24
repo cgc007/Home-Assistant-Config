@@ -1,0 +1,15 @@
+#https://www.reddit.com/r/homeassistant/comments/ar41d6/play_sound_through_alexa/egm2rcx/
+alexa_wakeup:
+  alias: Alexa Wake Up Message
+  sequence:
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.daphnes_room_dot
+        media_content_id: "Outside Bird Sounds"
+        media_content_type: "SPOTIFY"
+
+    - service: media_player.alexa_tts
+      data:
+        message: -> '{{ ["Good morning Daphne and probably Rachel.","Wake up and smell the catfood!","Oh hello there","Bon matin mes jolie filles!","What a beautiful day. Did you know that I have never been outside? I have not.","Must be nice to live in flesh. Enjoy your day","Today you have nothing on your scheduled calendar. Just kidding, you are going to be SO SO SO busy LOL","I hope you have a wonderful sleep. Do not forget to eat breakfast, meditate, do some yoga, shower, floss, kick your boots off, and be on time. Also, RELAX AND GO SLOWER"] | random }} The time is {{ states("sensor.time") }}, and the temperature outside is {{ states("sensor.dark_sky_temperature") }} degrees. {{ states("sensor.dark_sky_summary_0") }}.'
+
+        
