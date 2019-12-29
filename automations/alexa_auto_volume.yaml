@@ -13,7 +13,7 @@
       data:
         entity_id:
           - media_player.kitchen
-          - media_player.play_room
+          #- media_player.play_room
           - media_player.magnus_room
           - media_player.nora_room
         volume_level: 0.6
@@ -33,7 +33,7 @@
       data:
         entity_id:
           - media_player.kitchen
-          - media_player.play_room
+          #- media_player.play_room
           - media_player.magnus_room
           - media_player.nora_room
         volume_level: 0.2
@@ -53,7 +53,7 @@
       data:
         entity_id:
           - media_player.kitchen
-          - media_player.play_room
+          #- media_player.play_room
           - media_player.magnus_room
           - media_player.nora_room
         volume_level: 0.6
