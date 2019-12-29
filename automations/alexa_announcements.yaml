@@ -8,7 +8,6 @@
       data:
         target: 
           - media_player.everywhere
-          #- media_player.living_room
         #title: "My title for Echo show"
         data:
           type: announce
