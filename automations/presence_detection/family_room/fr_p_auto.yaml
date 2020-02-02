@@ -42,6 +42,29 @@
     - service: scene.turn_on
       entity_id: scene.family_room_night
 
+
+- alias: "Presence detected in kitchen, if lights off, turn lights to night mode after 3am"
+  trigger:
+    - platform: state
+      entity_id: light.kitchen_sink
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: template
+        value_template: '{{ is_state("light.family_room_lights", "off") }}' 
+      - condition: template
+        value_template: '{{ state_attr("sun.sun", "elevation") < 0 }}' #After sunset, before sunrise
+      - condition: time
+        after: '04:00:00'
+  action:
+    - service: scene.turn_on
+      entity_id: scene.family_room_night
+    - service: light.turn_on
+      data:
+        entity_id: light.entry
+        brightness: 1
+
 - alias: "Family Room not in use"
   trigger: 
     - platform: numeric_state

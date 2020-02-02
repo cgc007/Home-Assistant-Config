@@ -2,7 +2,7 @@
   initial_state: 'on'
   trigger:
     - platform: state
-      entity_id: light.kitchen_cans
+      entity_id: light.kitchen_sink
   condition:
     condition: and  # 'when light' condition: before sunset and after sunrise - equivalent to a state condition on `sun.sun` of `above_horizon`
     conditions:
@@ -13,17 +13,17 @@
   action:
     service: light.turn_on
     data:
-      entity_id: light.kitchen_sink
+      entity_id: light.kitchen_cans
     data_template: 
-      brightness: "{{ state_attr('light.kitchen_cans', 'brightness') }}"
+      brightness: "{{ state_attr('light.kitchen_sink_2', 'brightness') }}"
 
 
 - alias: Kitchen Cans Light Follow Mode of Sink light (OFF)
   initial_state: 'on'
   trigger:
     - platform: state
-      entity_id: light.kitchen_cans
+      entity_id: light.kitchen_sink
       to: 'off'
   action:
     service: light.turn_off
-    entity_id: light.kitchen_sink
+    entity_id: light.kitchen_cans

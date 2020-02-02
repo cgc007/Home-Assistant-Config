@@ -4,9 +4,6 @@
     light.family_room_lights:
       brightness: 50
       state: true
-    light.kitchenette_pendant:
-      brightness: 25
-      state: true
 - name: Family Room Night
   entities:
     light.family_room_lights:
