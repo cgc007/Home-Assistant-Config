@@ -1,0 +1,27 @@
+- alias: "Light Trim after 2 am"
+  initial_state: 'off'
+  trigger:
+    - platform: time
+      at: "02:00:00"
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.kitchenette_pendant
+        brightness: 1
+    - service: light.turn_off
+      data:
+        entity_id: light.kitchenette_pendant
+
+- alias: "Light Trim after 8 am"
+  initial_state: 'off'
+  trigger:
+    - platform: time
+      at: "08:00:00"
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.kitchenette_pendant
+        brightness: 255
+    - service: light.turn_off
+      data:
+        entity_id: light.kitchenette_pendant        
