@@ -6,8 +6,14 @@
       state: true
 - name: Family Room Night
   entities:
-    light.family_room_lights:
-      brightness: 10
+    light.family_west:
+      brightness: 35
+      state: true
+    light.family_east:
+      brightness: 15
+      state: true
+    light.family_south:
+      brightness: 15
       state: true
 - name: Switch Time
   entities:
@@ -26,4 +32,4 @@
       current_position: 0
     switch.family_room_tv_power: on
     media_player.family_room_tv:
-      source: Receiver
+      source: tvinput.hdmi1

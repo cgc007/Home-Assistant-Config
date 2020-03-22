@@ -27,6 +27,7 @@
   action:
     - service: homeassistant.turn_off
       entity_id: automation.coffee_is_done
+    - delay: "0:04:00"
     - service: notify.alexa_media
       data:
         target: 

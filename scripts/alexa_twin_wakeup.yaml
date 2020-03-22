@@ -1,0 +1,20 @@
+alias: Alexa Twins Wake Up Message
+sequence:
+- service: media_player.play_media
+  data:
+    #entity_id: media_player.twins_room
+    entity_id: media_player.family_room
+    media_content_id: "white noise"
+    media_content_type: "sequence"
+
+#- service: notify.alexa_media
+#  data:
+#    target: 
+#      - media_player.twins_room
+#     # - media_player.family_room
+#    #title: "My title for Echo show"
+#    data:
+#      type: announce
+#      #method: all
+#  data_template:
+#    message: 'Good morning Isaac and Esther. The time is {{ states("sensor.time") }}, and the temperature outside is {{ state_attr("weather.home", "temperature") }} degrees. It is {{ states("weather.home") }} outside.'

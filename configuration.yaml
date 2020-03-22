@@ -19,26 +19,34 @@ group: !include_dir_merge_list groups/
 light: !include_dir_merge_list light/
 cover: !include_dir_merge_list cover_groups/
 automation: !include_dir_merge_list automations/
-shell_command: !include_dir_named shell_commands/
+#shell_command: !include_dir_list shell_commands/
 script: !include_dir_named scripts/
 scene: !include_dir_merge_list scenes/
 sensor: !include_dir_merge_list sensors/
 input_boolean: !include_dir_named input_boolean/
+binary_sensor: #!include_dir_named binary_sensors/
+  - platform: template
+    sensors:
+      white_noise_twin:
+        value_template: "{{ is_state('input_boolean.white_noise_twin', 'on') }}"
 frontend:
   themes: !include_dir_named themes/
 
 zwave: !include zwave.yaml
 
+shell_command:
+  roku_tv_input_set: "curl -d '' '{{ tv_ip }}/launch/{{ input_name }}'"
+
 #ring
-ring:
-  username: !secret ring_username
-  password: !secret ring_password
+#ring:
+#  username: !secret ring_username
+#  password: !secret ring_password
 
 #cameras
 camera:
   - platform: familyhub
     ip_address: '192.168.1.102' #static IP
-  - platform: ring
+#  - platform: ring
 
 #sense config
 sense:
@@ -150,9 +158,6 @@ tplink:
   switch:
     - host: 192.168.1.30
     - host: 192.168.1.31
-
-binary_sensor:
-  - platform: ring
 
 ifttt:
   key: !secret ifttt_api_key

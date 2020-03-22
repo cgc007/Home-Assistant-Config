@@ -1,0 +1,4 @@
+platform: template
+sensors:
+  white_noise_twin:
+    value_template: "{{ is_state('input_boolean.white_noise_twin', 'on') }}"
