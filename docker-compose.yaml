@@ -12,5 +12,5 @@ services:
             #- /dev/ttyACM0
             - /dev/vcio
         #image: home-assistant-mine
-        image: homeassistant/home-assistant:latest
+        image: homeassistant/home-assistant:0.98.4
         restart: "unless-stopped"

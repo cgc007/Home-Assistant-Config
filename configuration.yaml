@@ -24,11 +24,6 @@ script: !include_dir_named scripts/
 scene: !include_dir_merge_list scenes/
 sensor: !include_dir_merge_list sensors/
 input_boolean: !include_dir_named input_boolean/
-binary_sensor: #!include_dir_named binary_sensors/
-  - platform: template
-    sensors:
-      white_noise_twin:
-        value_template: "{{ is_state('input_boolean.white_noise_twin', 'on') }}"
 frontend:
   themes: !include_dir_named themes/
 
@@ -82,10 +77,7 @@ alexa_media:
     - email: !secret amazon_user
       password: !secret amazon_password
       url: amazon.com
-
-device_tracker:
-  - platform: bluetooth_tracker
-    request_rssi: true
+      debug: true
 
 #calendar:
 #  - platform: todoist

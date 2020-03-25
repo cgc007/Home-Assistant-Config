@@ -4,8 +4,8 @@ sequence:
   data:
     #entity_id: media_player.twins_room
     entity_id: media_player.family_room
-    media_content_id: "white noise"
-    media_content_type: "sequence"
+    media_content_id: "pause"
+    media_content_type: "ROKU"
 
 #- service: notify.alexa_media
 #  data:
