@@ -27,9 +27,10 @@
       state: true
       brightness: 50
     cover.family_left:
-      current_position: 0
+      state: 'closed'
     cover.family_right: 
-      current_position: 0
+      state: 'closed'
     switch.family_room_tv_power: on
     media_player.family_room_tv:
-      source: tvinput.hdmi1
+      state: 'on'
+      source: 'tvinput.hdmi1'
