@@ -15,7 +15,7 @@
     data:
       entity_id: light.kitchen_cans
     data_template: 
-      brightness: "{{ state_attr('light.kitchen_sink_2', 'brightness') }}"
+      brightness: "{{ state_attr('light.kitchen_sink', 'brightness') }}"
 
 
 - alias: Kitchen Cans Light Follow Mode of Sink light (OFF)
