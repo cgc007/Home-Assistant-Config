@@ -12,5 +12,7 @@ services:
             #- /dev/ttyACM0
             - /dev/vcio
         #image: home-assistant-mine
-        image: homeassistant/home-assistant:0.107.7 #0.98.4 last known working config
+        image: homeassistant/home-assistant:0.111.4
+        #0.107.7 
+        #0.98.4 
         restart: "unless-stopped"

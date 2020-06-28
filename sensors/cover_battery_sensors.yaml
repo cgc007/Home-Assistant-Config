@@ -1,130 +1,126 @@
 - platform: template
   sensors:
-    batt_family_room_right:
-      friendly_name: "Family Room Right Blind Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_csz1_cellular_shade','battery_level') }}"
+    family_room_right:
+      friendly_name: "Family Room Right Blind"
+      value_template: "{{ state_attr('zwave.family_room_right_blind','battery_level') }}"
       unit_of_measurement: "%"
-    batt_family_room_left:
-      friendly_name: "Family Room Left Blind Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_csz1_cellular_shade_2','battery_level') }}"
+    family_room_left:
+      friendly_name: "Family Room Left Blind"
+      value_template: "{{ state_attr('zwave.family_room_left_blind','battery_level') }}"
       unit_of_measurement: "%"
-    batt_play_room:
-      friendly_name: "Play Room Blind Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_csz1_cellular_shade_3','battery_level') }}"
+    guest:
+      friendly_name: "Guest Room Blind"
+      value_template: "{{ state_attr('zwave.guest_room_blind','battery_level') }}"
       unit_of_measurement: "%"
-    batt_master_right:
-      friendly_name: "Master Right Blind Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_csz1_cellular_shade_4','battery_level') }}"
+    master_right:
+      friendly_name: "Master Right Blind"
+      value_template: "{{ state_attr('zwave.master_right_blind','battery_level') }}"
       unit_of_measurement: "%"
-    batt_master_left:
-      friendly_name: "Master Left Blind Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_csz1_cellular_shade_5','battery_level') }}"
+    master_left:
+      friendly_name: "Master Left Blind"
+      value_template: "{{ state_attr('zwave.master_left_blind','battery_level') }}"
       unit_of_measurement: "%"
-    batt_magnus_left:
-      friendly_name: "Magnus Left Blind Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_csz1_cellular_shade_6','battery_level') }}"
+    girl_left:
+      friendly_name: "Girl Left Blind"
+      value_template: "{{ state_attr('zwave.girl_left_blind','battery_level') }}"
       unit_of_measurement: "%"
-    batt_magnus_right:
-      friendly_name: "Magnus Right Blind Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_csz1_cellular_shade_7','battery_level') }}"
+    girl_right:
+      friendly_name: "Girl Right Blind"
+      value_template: "{{ state_attr('zwave.girl_right_blind','battery_level') }}"
       unit_of_measurement: "%"
-    batt_nora_left:
-      friendly_name: "Nora Left Blind Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_csz1_cellular_shade_8','battery_level') }}"
+    boy_left:
+      friendly_name: "Boy Left Blind"
+      value_template: "{{ state_attr('zwave.boy_left_blind','battery_level') }}"
       unit_of_measurement: "%"
-    batt_nora_right:
-      friendly_name: "Nora Right Blind Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_csz1_cellular_shade_9','battery_level') }}"
+    boy_right:
+      friendly_name: "Boy Right Blind"
+      value_template: "{{ state_attr('zwave.boy_right_blind','battery_level') }}"
       unit_of_measurement: "%"
-    batt_living_room_left:
-      friendly_name: "Living Room Left Blind Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_csz1_cellular_shade_10','battery_level') }}"
+    living_room_left:
+      friendly_name: "Living Room Left Blind"
+      value_template: "{{ state_attr('zwave.living_room_left_blind','battery_level') }}"
       unit_of_measurement: "%"
-    batt_living_room_right:
-      friendly_name: "Living Room Right Blind Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_csz1_cellular_shade_11','battery_level') }}"
+    living_room_right:
+      friendly_name: "Living Room Right Blind"
+      value_template: "{{ state_attr('zwave.living_room_right_blind','battery_level') }}"
       unit_of_measurement: "%"
-    batt_dining_room_left:
-      friendly_name: "Dining Room Left Blind Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_csz1_cellular_shade_12','battery_level') }}"
+    dining_room_left:
+      friendly_name: "Dining Room Left Blind"
+      value_template: "{{ state_attr('zwave.dining_room_left_blind','battery_level') }}"
       unit_of_measurement: "%"
-    batt_dining_room_right:
-      friendly_name: "Dining Room Right Blind Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_csz1_cellular_shade_13','battery_level') }}"
+    dining_room_right:
+      friendly_name: "Dining Room Right Blind"
+      value_template: "{{ state_attr('zwave.dining_room_right_blind','battery_level') }}"
       unit_of_measurement: "%"
-    batt_kitchen:
-      friendly_name: "Kitchen Blind Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_csz1_cellular_shade_14','battery_level') }}"
+    kitchen:
+      friendly_name: "Kitchen Blind"
+      value_template: "{{ state_attr('zwave.kitchen_blind','battery_level') }}"
       unit_of_measurement: "%"
-    batt_dining_room_center:
-      friendly_name: "Dining Room Center Blind Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_csz1_cellular_shade_15','battery_level') }}"
+    dining_room_center:
+      friendly_name: "Dining Room Center Blind"
+      value_template: "{{ state_attr('zwave.dining_room_center_blind','battery_level') }}"
       unit_of_measurement: "%"
     batt_controller_1:
       friendly_name: "Controller 1 Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_vcz1_virtual_cord_remote_control','battery_level') }}"
+      value_template: "{{ state_attr('zwave.family_room_blind_controller','battery_level') }}"
       unit_of_measurement: "%"
     batt_controller_2:
       friendly_name: "Controller 2 Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_vcz1_virtual_cord_remote_control_2','battery_level') }}"
+      value_template: "{{ state_attr('zwave.playroom_blind_controller','battery_level') }}"
       unit_of_measurement: "%"
-    batt_twins_room:
-      friendly_name: "Twins Room Blind Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_csz1_cellular_shade_16','battery_level') }}"
+    play:
+      friendly_name: "Play Room"
+      value_template: "{{ state_attr('zwave.play_room_blind','battery_level') }}"
       unit_of_measurement: "%"
     batt_controller_5:
       friendly_name: "Controller 5 Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_vcz1_virtual_cord_remote_control_3','battery_level') }}"
+      value_template: "{{ state_attr('zwave.@master_off_blind_controller','battery_level') }}"
       unit_of_measurement: "%"
     batt_controller_6:
       friendly_name: "Controller 6 Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_vcz1_virtual_cord_remote_control_4','battery_level') }}"
+      value_template: "{{ state_attr('zwave.master_bedroom_blinds_blind_controller','battery_level') }}"
       unit_of_measurement: "%"
     batt_controller_7:
       friendly_name: "Controller 7 Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_vcz1_virtual_cord_remote_control_5','battery_level') }}"
+      value_template: "{{ state_attr('zwave.master_bedroom_blinds_blind_controller','battery_level') }}"
       unit_of_measurement: "%"
     batt_controller_8:
       friendly_name: "Controller 8 Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_vcz1_virtual_cord_remote_control_6','battery_level') }}"
+      value_template: "{{ state_attr('zwave.kitchen_blind_controller','battery_level') }}"
       unit_of_measurement: "%"
     batt_controller_9:
       friendly_name: "Controller 9 Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_vcz1_virtual_cord_remote_control_7','battery_level') }}"
+      value_template: "{{ state_attr('zwave.9_blind_controller','battery_level') }}"
       unit_of_measurement: "%"
     batt_controller_10:
       friendly_name: "Controller 10 Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_vcz1_virtual_cord_remote_control_8','battery_level') }}"
+      value_template: "{{ state_attr('zwave.master_common_area_blind_controller','battery_level') }}"
       unit_of_measurement: "%"
     batt_controller_11:
       friendly_name: "Controller 11 Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_vcz1_virtual_cord_remote_control_9','battery_level') }}"
+      value_template: "{{ state_attr('zwave.11_blind_controller','battery_level') }}"
       unit_of_measurement: "%"
     batt_controller_12:
       friendly_name: "Controller 12 Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_vcz1_virtual_cord_remote_control_10','battery_level') }}"
+      value_template: "{{ state_attr('zwave.girl_room_blind_controller','battery_level') }}"
       unit_of_measurement: "%"
     batt_controller_13:
       friendly_name: "Controller 13 Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_vcz1_virtual_cord_remote_control_11','battery_level') }}"
+      value_template: "{{ state_attr('zwave.13_blind_controller','battery_level') }}"
       unit_of_measurement: "%"
     batt_controller_14:
       friendly_name: "Controller 14 Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_vcz1_virtual_cord_remote_control_12','battery_level') }}"
+      value_template: "{{ state_attr('zwave.boy_room_blind_controller','battery_level') }}"
       unit_of_measurement: "%"
     batt_controller_15:
       friendly_name: "Controller 15 Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_vcz1_virtual_cord_remote_control_13','battery_level') }}"
+      value_template: "{{ state_attr('zwave.15_blind_controller','battery_level') }}"
       unit_of_measurement: "%"
     batt_controller_16:
       friendly_name: "Controller 16 Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_vcz1_virtual_cord_remote_control_14','battery_level') }}"
+      value_template: "{{ state_attr('zwave.16_blind_controller','battery_level') }}"
       unit_of_measurement: "%"
     batt_controller_4:
       friendly_name: "Controller 4 Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_vcz1_virtual_cord_remote_control_15','battery_level') }}"
-      unit_of_measurement: "%"
-    batt_controller_3:
-      friendly_name: "Controller 3 Battery"
-      value_template: "{{ state_attr('zwave.springs_window_fashions_graber_vcz1_virtual_cord_remote_control_16','battery_level') }}"
+      value_template: "{{ state_attr('zwave.master_common_area_blind_controller','battery_level') }}"
       unit_of_measurement: "%"

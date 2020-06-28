@@ -21,12 +21,12 @@
 - alias: Hall Bathroom Fan Timer
   trigger:
     - platform: state
-      entity_id: light.hall_bath
+      entity_id: light.hall_bathroom
       to: 'off'
       for: '00:15:00'
   action:
     service: switch.turn_off
-    entity_id: switch.hall_bath_fan
+    entity_id: switch.hall_bathroom_fan
     
 - alias: Fan Timers
   trigger:
@@ -39,7 +39,7 @@
       to: 'on'
       for: '00:60:00'
     - platform: state
-      entity_id: switch.hall_bath_fan
+      entity_id: switch.hall_bathroom_fan
       to: 'on'
       for: '00:60:00'
   action:

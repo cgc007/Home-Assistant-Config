@@ -47,7 +47,7 @@
       entity_id: binary_sensor.garage_door
       to: 'on'
     - platform: state
-      entity_id: binary_sensor.ring_front_door_motion
+      entity_id: binary_sensor.front_door_motion
       to: 'on'
   condition:
     condition: and
@@ -65,7 +65,7 @@
 
 - alias: Turn Front Outside Lights off when night after event
 #This automation will turn the front outside light off after 15m after the garage door closes
-  initial_state: 'off'
+  initial_state: 'on'
   trigger:
     - platform: state
       entity_id: binary_sensor.garage_door

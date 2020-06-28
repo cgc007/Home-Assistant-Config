@@ -17,16 +17,16 @@
     - light.kitchenette_cabinet
     - light.stairway
     - light.play
-    - light.twin
+    - light.guest
     - light.laundry
     - light.basement_bathroom
 - platform: group
   name: Upstairs Lights
   entities:
     - light.entry
-    - light.mb_toilet
-    - light.mb_sink
-    - light.mb_shower
+    - light.master_bath_toilet
+    - light.master_bath_sink
+    - light.master_bath_shower
     - light.dining
     - light.mud
     - light.pantry
@@ -42,9 +42,9 @@
 - platform: group
   name: Master Bath Lights
   entities:
-    - light.mb_toilet
-    - light.mb_sink
-    - light.mb_shower
+    - light.master_bath_toilet
+    - light.master_bath_sink
+    - light.master_bath_shower
 - platform: group
   name: Common Area Lights
   entities:
@@ -68,13 +68,13 @@
     - light.kitchenette_pendant
     - light.kitchenette_cabinet
     - light.stairway
-    - light.twin
+    - light.guest
     - light.play
     - light.magnus_fan_light
     - light.master_bedroom_fan_light
-    - light.mb_toilet
-    - light.mb_sink
-    - light.mb_shower
+    - light.master_bath_toilet
+    - light.master_bath_sink
+    - light.master_bath_shower
     - light.hall_bath
     - light.basement_bathroom
     - light.entry

@@ -10,15 +10,15 @@
     - cover.living_left
     - cover.living_right
 - platform: group
-  name: Nora's Blinds
+  name: Girl Blinds
   entities:
-    - cover.nora_left
-    - cover.nora_right
+    - cover.girl_left
+    - cover.girl_right
 - platform: group
-  name: Magnus's Blinds
+  name: Boy Blinds
   entities:
-    - cover.magnus_left
-    - cover.magnus_right
+    - cover.boy_left
+    - cover.boy_right
 - platform: group
   name: Master Bedroom Blinds
   entities:
@@ -41,15 +41,15 @@
   entities:
     - cover.master_left
     - cover.master_right
-    - cover.magnus_left
-    - cover.magnus_right
+    - cover.boy_left
+    - cover.boy_right
     - cover.dining_left
     - cover.dining_center
     - cover.dining_right
     - cover.living_left
     - cover.living_right
-    - cover.nora_left
-    - cover.nora_right
+    - cover.girl_left
+    - cover.girl_right
 - platform: group
   name: Common Area Blinds
   entities:
@@ -75,14 +75,15 @@
     - cover.living_right
     - cover.kitchen
     - cover.nursery
+    - cover.play
 - platform: group
   name: West Blinds
   entities:
-    - cover.play
-    - cover.magnus_left
-    - cover.magnus_right
-    - cover.nora_left
-    - cover.nora_right
+    - cover.guest
+    - cover.boy_left
+    - cover.boy_right
+    - cover.girl_left
+    - cover.girl_right
 - platform: group
   name: All Blinds
   entities:
@@ -91,14 +92,14 @@
     - cover.play
     - cover.master_left
     - cover.master_right
-    - cover.magnus_left
-    - cover.magnus_right
+    - cover.boy_left
+    - cover.boy_right
     - cover.dining_left
     - cover.dining_center
     - cover.dining_right
     - cover.living_left
     - cover.living_right
-    - cover.nora_left
-    - cover.nora_right
+    - cover.girl_left
+    - cover.girl_right
     - cover.kitchen
-    - cover.twin
+    - cover.guest

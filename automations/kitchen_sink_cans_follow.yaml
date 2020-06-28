@@ -13,7 +13,9 @@
   action:
     service: light.turn_on
     data:
-      entity_id: light.kitchen_cans
+      entity_id: 
+        - light.kitchen_cans
+        - light.nook
     data_template: 
       brightness: "{{ state_attr('light.kitchen_sink', 'brightness') }}"
 
@@ -26,4 +28,6 @@
       to: 'off'
   action:
     service: light.turn_off
-    entity_id: light.kitchen_cans
+    entity_id: 
+        - light.kitchen_cans
+        - light.nook
