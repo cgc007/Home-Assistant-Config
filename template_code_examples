@@ -1,0 +1,9 @@
+loop through all states:
+
+{% for entity in states -%}
+  {{ entity.entity_id | lower }} {{- '\n' -}}
+{%- endfor %}
+
+Play YouTube Video on Family room roku:
+curl -d '' "http://192.168.1.50:8060/launch/837?contentID=I2tb_06sQDE"
+

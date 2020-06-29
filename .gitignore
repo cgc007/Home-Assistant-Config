@@ -1,0 +1,9 @@
+#ignore all logs
+*.log
+OZW_Log.txt
+*.xml
+*.html
+*.db*
+secrets.yaml
+.storage
+.cloud

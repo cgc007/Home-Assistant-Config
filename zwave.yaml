@@ -3,6 +3,22 @@ config_path: /config/OZW/config
 network_key: !secret zwave_network_key
 polling_interval: 45000
 device_config:
+  light.basement_bathroom:
+    polling_intensity: 1
+    refresh_value: true
+    delay: 3
+  light.dining:
+    polling_intensity: 1
+    refresh_value: true
+    delay: 3
+  light.entry:
+    polling_intensity: 1
+    refresh_value: true
+    delay: 3
+  light.family_east:
+    polling_intensity: 1
+    refresh_value: true
+    delay: 3
   light.family_south:
     polling_intensity: 1
     refresh_value: true
@@ -11,7 +27,27 @@ device_config:
     polling_intensity: 1
     refresh_value: true
     delay: 3
-  light.family_east:
+  light.front_outside:
+    polling_intensity: 1
+    refresh_value: true
+    delay: 3
+  light.guest:
+    polling_intensity: 1
+    refresh_value: true
+    delay: 3
+  light.hall_bathroom:
+    polling_intensity: 1
+    refresh_value: true
+    delay: 3
+  light.kitchen_cans:
+    polling_intensity: 1
+    refresh_value: true
+    delay: 3
+  light.kitchen_sink:
+    polling_intensity: 1
+    refresh_value: true
+    delay: 3
+  light.kitchenette_cabinet:
     polling_intensity: 1
     refresh_value: true
     delay: 3
@@ -23,15 +59,11 @@ device_config:
     polling_intensity: 1
     refresh_value: true
     delay: 3
-  light.stairway:
+  light.master_bath_shower:
     polling_intensity: 1
     refresh_value: true
     delay: 3
-  light.twin:
-    polling_intensity: 1
-    refresh_value: true
-    delay: 3
-  light.play:
+  light.master_bath_sink:
     polling_intensity: 1
     refresh_value: true
     delay: 3
@@ -39,23 +71,11 @@ device_config:
     polling_intensity: 1
     refresh_value: true
     delay: 3
-  light.maser_bath_sink:
+  light.nook:
     polling_intensity: 1
     refresh_value: true
     delay: 3
-  light.master_bath_shower:
-    polling_intensity: 1
-    refresh_value: true
-    delay: 3
-  light.entry:
-    polling_intensity: 1
-    refresh_value: true
-    delay: 3
-  light.dining:
-    polling_intensity: 1
-    refresh_value: true
-    delay: 3
-  light.basement_bathroom:
+  light.play:
     polling_intensity: 1
     refresh_value: true
     delay: 3
@@ -63,11 +83,7 @@ device_config:
     polling_intensity: 1
     refresh_value: true
     delay: 3
-  light.hall_bath:
-    polling_intensity: 1
-    refresh_value: true
-    delay: 3
-  light.front_outside:
+  light.stairway:
     polling_intensity: 1
     refresh_value: true
     delay: 3
