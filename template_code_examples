@@ -7,3 +7,9 @@ loop through all states:
 Play YouTube Video on Family room roku:
 curl -d '' "http://192.168.1.50:8060/launch/837?contentID=I2tb_06sQDE"
 
+loop through all lights and list those that are on and not at full brightness:
+
+{% for entity in states.light -%}
+  {%- if entity.state == 'on' %} 
+    {%- if entity.attributes.brightness != 255 %}{{ entity.entity_id | lower }}: {{entity.attributes.brightness}} {{- '\n' -}}
+  {% endif -%} {% endif -%} {%- endfor %}

@@ -15,6 +15,12 @@
     light.family_south:
       brightness: 15
       state: true
+    light.stairway:
+      brightness: 50
+      state: true
+    light.kitchenette_pendant:
+      brightness: 15
+      state: true
 - name: Switch Time
   entities:
     light.family_east:
