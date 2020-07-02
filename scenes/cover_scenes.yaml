@@ -1,0 +1,15 @@
+# cover_scenes
+- name: House Wakeup Covers
+  entities:
+    cover.family_room_blinds:
+      position: 100
+      #state: true
+    cover.dining_room_blinds:
+      position: 30
+      #state: true
+    cover.family_room_blinds:
+      position: 10
+      #state: true
+    cover.kitchen:
+      position: 100
+      #state: true

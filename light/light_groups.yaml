@@ -7,6 +7,7 @@
     - light.kitchenette_cans
     - light.kitchenette_cabinet
     - light.kitchenette_pendant
+    - light.stairway
 - platform: group
   name: Basement Lights
   entities:
@@ -22,6 +23,11 @@
     - light.laundry
     - light.basement_bathroom
 - platform: group
+  name: Kitchen Lights
+    - light.kitchen_sink
+    - light.kitchen_cans
+    - light.nook
+- platform: group
   name: Upstairs Lights
   entities:
     - light.entry
@@ -31,15 +37,18 @@
     - light.dining
     - light.mud
     - light.pantry
-    - light.garage
     - light.garage_entry
-    - light.living_room_fan_light
-    - light.magnus_fan_light
-    - light.master_bedroom_fan_light
+    #- light.living_room_fan_light
+    #- light.magnus_fan_light
+    #- light.master_bedroom_fan_light
+    - light.kitchen_sink
+    - light.kitchen_cans
+    - light.nook
 - platform: group
   name: Living Room Lights
   entities:
-    - light.living_room_fan_light
+    #- light.living_room_fan_light
+    - light.entry
 - platform: group
   name: Master Bath Lights
   entities:
@@ -58,7 +67,7 @@
     - light.stairway
     - light.entry
     - light.dining
-    - light.living_room_fan_light
+    #- light.living_room_fan_light
 - platform: group
   name: All Lights
   entities:
@@ -71,8 +80,8 @@
     - light.stairway
     - light.guest
     - light.play
-    - light.magnus_fan_light
-    - light.master_bedroom_fan_light
+    #- light.magnus_fan_light
+    #- light.master_bedroom_fan_light
     - light.master_bath_toilet
     - light.master_bath_sink
     - light.master_bath_shower
@@ -85,9 +94,10 @@
     - light.laundry
     - light.garage
     - light.garage_entry
-    - light.living_room_fan_light
+    #- light.living_room_fan_light
 - platform: group
   name: Outside Lights
   entities:
     - light.rear_porch
     - light.front_outside
+    - light.garage
