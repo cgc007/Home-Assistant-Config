@@ -2,14 +2,14 @@
 - name: House Wakeup Covers
   entities:
     cover.family_room_blinds:
-      position: 100
-      #state: true
+      state: open
+      current_position: 100
     cover.dining_room_blinds:
-      position: 30
-      #state: true
+      state: open
+      current_position: 30
     cover.family_room_blinds:
-      position: 10
-      #state: true
+      state: open
+      current_position: 10
     cover.kitchen:
-      position: 100
-      #state: true
+      state: open
+      current_position: 100

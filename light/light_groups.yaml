@@ -24,6 +24,7 @@
     - light.basement_bathroom
 - platform: group
   name: Kitchen Lights
+  entities:
     - light.kitchen_sink
     - light.kitchen_cans
     - light.nook
