@@ -9,7 +9,7 @@
       current_position: 30
     cover.family_room_blinds:
       state: open
-      current_position: 10
+      current_position: 5
     cover.kitchen:
       state: open
       current_position: 100
