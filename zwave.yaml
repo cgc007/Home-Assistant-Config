@@ -43,10 +43,6 @@ device_config:
     polling_intensity: 1
     refresh_value: true
     delay: 3
-  light.kitchen_sink:
-    polling_intensity: 1
-    refresh_value: true
-    delay: 3
   light.kitchenette_cabinet:
     polling_intensity: 1
     refresh_value: true

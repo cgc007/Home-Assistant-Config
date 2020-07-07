@@ -98,6 +98,9 @@
           type: push
           #method: all
         message: "Z-Wave Network is Ready"
+    - service: automation.turn_on
+      entity_id:
+        - automation.motion_detected_in_the_garage
     #service: notify.discord_bot
     #data:
     #  target: !secret discord_notify_channel_id_general
