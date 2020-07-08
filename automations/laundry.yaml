@@ -59,16 +59,26 @@
 #          #method: all
 #        message: "The Washing machine has finished."
 #    - delay: '00:00:03'
-    - service: notify.alexa_media
+    - service: notify.mobile_app_pixel_3a
       data:
-        target: 
-          - media_player.craig_s_alexa_apps
-          - media_player.heidi_s_alexa_apps
-        #title: "My title for Echo show"
+        title: 'Laundry'
+        message: 'Washer is Done'
         data:
-          type: push
-          #method: all
-        message: "Washer is done"        
+          color: '#E0FFFF' #cyan
+    - service: notify.mobile_app_heidi_s_iphone_11
+      data:
+        title: 'Laundry'
+        message: 'Washer is Done'
+#    - service: notify.alexa_media
+#      data:
+#        target: 
+#          #- media_player.craig_s_alexa_apps
+#          - media_player.heidi_s_alexa_apps
+#        #title: "My title for Echo show"
+#        data:
+#          type: push
+#          #method: all
+#        message: "Washer is done"        
     #- service: notify.discord_bot
     #  data:
     #    target: !secret discord_notify_channel_id_general

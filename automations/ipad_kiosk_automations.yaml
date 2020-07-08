@@ -1,0 +1,23 @@
+- alias: Kiosk Battery Low
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: sensor.ipad_battery_level
+  condition:
+    condition: and
+    conditions:
+      - condition: template
+        value_template: "{{ states('sensor.ipad_battery_level') < '25' }}"
+      - condition: template
+        value_template: "{{ states('sensor.ipad_battery_state') == 'Not Charging' }}"
+  action:  
+    - service: notify.mobile_app_pixel_3a
+      data:
+        title: "Battery Minder"
+        message: "Kiosk iPad Battery is Low" 
+        data:
+          color: '#E0FFFF' #cyan
+    - service: notify.mobile_app_heidi_s_iphone_11
+      data:
+        title: "Battery Minder"
+        message: "Kiosk iPad Battery is Low" 
