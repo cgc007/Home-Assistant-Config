@@ -1,7 +1,7 @@
 - alias: Bedtime for Boy Blinds
   trigger:
     - platform: time
-      at: '18:59:12'
+      at: '15:00:00'
   action:
     service: cover.close_cover
     entity_id: cover.boy_blinds
@@ -9,7 +9,7 @@
 - alias: Bedtime for Girl Blinds
   trigger:
     - platform: time
-      at: '18:59:12'
+      at: '15:00:00'
   action:
     service: cover.close_cover
     entity_id: cover.girl_blinds

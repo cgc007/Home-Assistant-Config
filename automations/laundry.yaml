@@ -1,25 +1,26 @@
-- alias: "Dryer has stopped"
-  initial_state: 'on'
+- alias: "Dryer has started"
   trigger:
-    - platform: state
-      entity_id: binary_sensor.dryer
-      to: 'off'
-      for:
-        minutes: 15
+    - platform: numeric_state
+      entity_id: switch.dryer
+      value_template: "{{ state.attributes.current_power_w }}"
+      above: 0
   action:
-#    - service: notify.ios_heidis_iphone_7
-#      data:
-#        message: "Dryer: Done"
-#    - service: notify.alexa_media
-#      data:
-#        target: 
-#          - media_player.everywhere
-#        #title: "My title for Echo show"
-#        data:
-#          type: announce
-#          #method: all
-#        message: "The Dryer has finished."
-#    - delay: '00:00:03'
+    - service: homeassistant.turn_on
+      entity_id: automation.dryer_has_stopped
+
+- alias: "Dryer has stopped"
+  initial_state: 'off'
+  trigger:
+    - platform: numeric_state
+      entity_id: switch.dryer
+      value_template: "{{ state.attributes.current_power_w }}"
+      below: 1
+  condition:
+    - condition: template # only notify once every 12 minutes at most
+      value_template: "{{ ( as_timestamp(now()) - as_timestamp(state_attr('automation.dryer_has_started', 'last_triggered')) |int(0) ) > 720 }}"
+  action:
+    - service: homeassistant.turn_off
+      entity_id: automation.dryer_has_stopped
     - service: notify.alexa_media
       data:
         target: 
@@ -37,15 +38,26 @@
     #    data:
     #      tag: 'dryer-stopped'
 
-- alias: "Washer has stopped"
-  initial_state: 'on'
+- alias: "Washer has started"
   trigger:
-    - platform: state
-      entity_id: binary_sensor.washer
-      to: 'off'
-      for:
-        minutes: 6
+    - platform: numeric_state
+      entity_id: switch.washing_machine
+      value_template: "{{ state.attributes.current_power_w }}"
+      above: 0
   action:
+    - service: homeassistant.turn_on
+      entity_id: automation.washer_has_stopped
+
+- alias: "Washer has stopped"
+  initial_state: 'off'
+  trigger:
+    - platform: numeric_state
+      entity_id: switch.washing_machine
+      value_template: "{{ state.attributes.current_power_w }}"
+      below: 1
+  action:
+    - service: homeassistant.turn_off
+      entity_id: automation.washer_has_stopped
 #    - service: notify.ios_heidis_iphone_7
 #      data:
 #        message: "Washer: Done"
