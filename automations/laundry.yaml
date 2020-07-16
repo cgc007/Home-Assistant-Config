@@ -6,37 +6,7 @@
       above: 0
   action:
     - service: homeassistant.turn_on
-      entity_id: automation.dryer_has_stopped
-
-- alias: "Dryer has stopped"
-  initial_state: 'off'
-  trigger:
-    - platform: numeric_state
-      entity_id: switch.dryer
-      value_template: "{{ state.attributes.current_power_w }}"
-      below: 1
-  condition:
-    - condition: template # only notify once every 12 minutes at most
-      value_template: "{{ ( as_timestamp(now()) - as_timestamp(state_attr('automation.dryer_has_started', 'last_triggered')) |int(0) ) > 720 }}"
-  action:
-    - service: homeassistant.turn_off
-      entity_id: automation.dryer_has_stopped
-    - service: notify.alexa_media
-      data:
-        target: 
-          - media_player.craig_s_alexa_apps
-          #- media_player.heidi_s_alexa_apps
-        #title: "My title for Echo show"
-        data:
-          type: push
-          #method: all
-        message: "Dryer is done"
-    #- service: notify.discord_bot
-    #  data:
-    #    target: !secret discord_notify_channel_id_general
-    #    message: Dryer is done  
-    #    data:
-    #      tag: 'dryer-stopped'
+      entity_id: automation.switch_the_laundry
 
 - alias: "Washer has started"
   trigger:
@@ -46,54 +16,32 @@
       above: 0
   action:
     - service: homeassistant.turn_on
-      entity_id: automation.washer_has_stopped
+      entity_id: automation.switch_the_laundry
 
-- alias: "Washer has stopped"
+- alias: "Switch the Laundry"
   initial_state: 'off'
   trigger:
     - platform: numeric_state
       entity_id: switch.washing_machine
       value_template: "{{ state.attributes.current_power_w }}"
       below: 1
+    - platform: numeric_state
+      entity_id: switch.dryer
+      value_template: "{{ state.attributes.current_power_w }}"
+      below: 1
+  condition:
+    - condition: template # only notify if washer and dryer aren't running
+      value_template: "{{ state_attr('switch.dryer', 'current_power_w') |int(0)  == 0 and state_attr('switch.washing_machine', 'current_power_w') |int(0)  == 0 }}"
   action:
     - service: homeassistant.turn_off
-      entity_id: automation.washer_has_stopped
-#    - service: notify.ios_heidis_iphone_7
-#      data:
-#        message: "Washer: Done"
-#    - service: notify.alexa_media
-#      data:
-#        target: 
-#          - media_player.everywhere
-#        #title: "My title for Echo show"
-#        data:
-#          type: announce
-#          #method: all
-#        message: "The Washing machine has finished."
-#    - delay: '00:00:03'
+      entity_id: automation.switch_the_laundry
     - service: notify.mobile_app_pixel_3a
       data:
         title: 'Laundry'
-        message: 'Washer is Done'
+        message: 'Switch the laundry'
         data:
           color: '#E0FFFF' #cyan
     - service: notify.mobile_app_heidi_s_iphone_11
       data:
         title: 'Laundry'
-        message: 'Washer is Done'
-#    - service: notify.alexa_media
-#      data:
-#        target: 
-#          #- media_player.craig_s_alexa_apps
-#          - media_player.heidi_s_alexa_apps
-#        #title: "My title for Echo show"
-#        data:
-#          type: push
-#          #method: all
-#        message: "Washer is done"        
-    #- service: notify.discord_bot
-    #  data:
-    #    target: !secret discord_notify_channel_id_general
-    #    message: Washer is done  
-    #    data:
-    #      tag: 'washer-stopped'
+        message: 'Switch the laundry'
