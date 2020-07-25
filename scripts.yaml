@@ -1,0 +1,19 @@
+'1595202373840':
+  alias: Play Bedtime Music
+  sequence:
+  - data:
+      entity_id: media_player.magnus_s_room
+      media_content_id: Isaac Bedtime playlist
+      media_content_type: AMAZON_MUSIC
+    entity_id: media_player.magnus_s_room
+    service: media_player.play_media
+  - data:
+      entity_id: media_player.nora_s_room
+      media_content_id: Nora Bedtime playlist
+      media_content_type: AMAZON_MUSIC
+    service: media_player.play_media
+  - data:
+      entity_id: media_player.play_room
+      media_content_id: Nora Bedtime playlist
+      media_content_type: AMAZON_MUSIC
+    service: media_player.play_media

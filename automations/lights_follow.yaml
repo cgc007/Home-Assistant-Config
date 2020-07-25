@@ -31,3 +31,29 @@
     entity_id: 
         - light.kitchen_cans
         - light.nook
+
+- alias: Stairway Light Follows Entry (ON)
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: light.entry
+  action:
+    service: light.turn_on
+    data:
+      entity_id: 
+        - light.stairway    
+    data_template: 
+      brightness: "{{ state_attr('light.entry', 'brightness') }}"
+
+- alias: Entry Light Follows Stairway (ON)
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: light.stairway
+  action:
+    service: light.turn_on
+    data:
+      entity_id: 
+        - light.entry    
+    data_template: 
+      brightness: "{{ state_attr('light.stairway', 'brightness') }}"

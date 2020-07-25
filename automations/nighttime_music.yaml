@@ -1,0 +1,20 @@
+- alias: "Kids Nighttime Music"
+  trigger:
+    - platform: time
+      at: '18:45:00'
+  action:    
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.magnus_s_room
+        media_content_id: 'isaac bedtime on repeat'
+        media_content_type: 'AMAZON_MUSIC'
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.nora_s_room
+        media_content_id: 'nora bedtime on repeat'
+        media_content_type: 'AMAZON_MUSIC'
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.play_room
+        media_content_id: 'nora bedtime on repeat'
+        media_content_type: 'AMAZON_MUSIC'

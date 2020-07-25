@@ -1,8 +1,8 @@
 - platform: template
   sensors:
-    computer_power:
-      friendly_name: "Computer Power"
-      value_template: "{{ state_attr('switch.computer','current_power_w') }}"
-    home_theater_power:
-      friendly_name: "Home Theater Power"
-      value_template: "{{ state_attr('switch.home_theater','current_power_w') }}"
+    dryer_power:
+      friendly_name: "Dryer Power"
+      value_template: "{{ state_attr('switch.dryer','current_power_w') }}"
+    washing_machine_power:
+      friendly_name: "Washing Machine Power"
+      value_template: "{{ state_attr('switch.washing_machine','current_power_w') }}"

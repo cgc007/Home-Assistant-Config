@@ -1,11 +1,11 @@
-- alias: "Family Room Computer in use"
-  trigger: 
-    - platform: numeric_state
-      entity_id: sensor.computer_power
-      above: 30
-  action:
-    - service: input_boolean.turn_on
-      entity_id: input_boolean.family_room_occupied
+#- alias: "Family Room Computer in use"
+#  trigger: 
+#    - platform: numeric_state
+#      entity_id: sensor.computer_power
+#      above: 30
+#  action:
+#    - service: input_boolean.turn_on
+#      entity_id: input_boolean.family_room_occupied
 
 #- alias: "Home Theater is On"
 #  trigger: 
@@ -42,6 +42,25 @@
     - service: scene.turn_on
       entity_id: scene.family_room_night
 
+- alias: "Presence detected, if lights off, turn to full bright"
+  trigger:
+    - platform: state
+      entity_id: input_boolean.family_room_occupied
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: template
+        value_template: '{{ state_attr("light.family_room_lights","brightness") == 0 }}' 
+      - condition: template
+        value_template: '{{ state_attr("sun.sun", "elevation") > 0 }}' #Sun is up
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.family_room_lights
+        brightness: 255
+
+
 
 - alias: "Presence detected in kitchen, if lights off, turn lights to night mode after 3am"
   trigger:
@@ -54,7 +73,7 @@
       - condition: template
         value_template: '{{ is_state("light.family_room_lights", "off") }}' 
       - condition: template
-        value_template: '{{ state_attr("sun.sun", "elevation") < 0 }}' #After sunset, before sunrise
+        value_template: '{{ state_attr("sun.sun", "elevation") < 0 }}' #Sun is down
       - condition: time
         after: '04:00:00'
         before: '10:00:00'
@@ -68,27 +87,38 @@
 
 - alias: "Family Room not in use"
   trigger: 
-    - platform: numeric_state
-      entity_id: sensor.computer_power
-      below: 30
+    - platform: state
+      entity_id: device_tracker.ssd_cam
+      to: 'away'
+      for: '00:05:00'
+    - platform: state
+      entity_id: media_player.family_room_tv
+      to: 'standby'
+      for: '00:05:00'
+    - platform: state
+      entity_id: binary_sensor.hue_motion_sensor_1_motion
+      to: 'off'
+      for: '00:15:00'
 #NEED more things to trigger off of
   condition:
     condition: and
     conditions:
       - condition: template
-        value_template: '{{ state_attr("light.family_room_lights","brightness") == 0 }}'
+        value_template: '{{ states("media_player.family_room_tv") == "standby" }}'
       - condition: template
-        value_template: '{{ states("media_player.family_room_tv") == "off" }}'
+        value_template: '{{ states("device_tracker.ssd_cam") == "away" }}'
+      - condition: template
+        value_template: '{{ states("binary_sensor.hue_motion_sensor_1_motion") == "off" }}'
   action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.family_room_occupied
 
-#- alias: "Family Room turn lights off after 10m of unoccupied"
-#  trigger: 
-#    - platform: state
-#      entity_id: input_boolean.family_room_occupied
-#      to: 'off'
-#      for: '00:10:00'
-#  action:
-#    - service: input_boolean.turn_off
-#      entity_id: input_boolean.family_room_occupied
+- alias: "Family Room turn lights off after 10m of unoccupied"
+  trigger: 
+    - platform: state
+      entity_id: input_boolean.family_room_occupied
+      to: 'off'
+      for: '00:10:00'
+  action:
+    - service: light.turn_off
+      entity_id: light.family_room_lights

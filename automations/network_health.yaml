@@ -1,0 +1,75 @@
+#device_tracker.sense_m712000176
+#device_tracker.rpi0_1
+#device_tracker.ringpro_5d
+#device_tracker.craigcabellsefb
+#device_tracker.5c_ad_76_c3_d6_43 this is the FamilyRoom Roku TV
+#device_tracker.9e_65_f9_07_8e_80 BOND PUCK
+#device_tracker.00_17_88_23_e2_3c HUE BRIDGE
+
+- alias: Network Loss
+  trigger:
+    - platform: state
+      entity_id: device_tracker.sense_m712000176
+      to: 'away'
+      for: '00:05:00'
+    - platform: state
+      entity_id: device_tracker.rpi0_1
+      to: 'away'
+      for: '00:05:00'
+    - platform: state
+      entity_id: device_tracker.ringpro_5d
+      to: 'away'
+      for: '00:05:00'
+    - platform: state
+      entity_id: device_tracker.9e_65_f9_07_8e_80
+      to: 'away'
+      for: '00:05:00'
+    - platform: state
+      entity_id: device_tracker.00_17_88_23_e2_3c
+      to: 'away'
+      for: '00:05:00'
+    - platform: state
+      entity_id: device_tracker.ssd_cam
+      to: 'away'
+      for: '00:05:00'
+  action:
+    - service: notify.mobile_app_pixel_3a
+      data:
+        title: 'Network Loss'
+        data_template:
+          message: "{{ trigger.entity_id }} has lost it's network connection" 
+        data:
+          color: '#E0FFFF' #cyan
+          data_template:
+            tag: "network-{{ trigger.entity_id }}"
+
+- alias: Network Connect
+  trigger:
+    - platform: state
+      entity_id: device_tracker.sense_m712000176
+      to: 'home'
+    - platform: state
+      entity_id: device_tracker.rpi0_1
+      to: 'home'
+    - platform: state
+      entity_id: device_tracker.ringpro_5d
+      to: 'home'
+    - platform: state
+      entity_id: device_tracker.9e_65_f9_07_8e_80
+      to: 'home'
+    - platform: state
+      entity_id: device_tracker.00_17_88_23_e2_3c
+      to: 'home'
+    - platform: state
+      entity_id: device_tracker.ssd_cam
+      to: 'home'
+  action:
+    - service: notify.mobile_app_pixel_3a
+      data:
+        title: 'Network Loss'
+        data_template:
+          message: "{{ trigger.entity_id }} has connected to the network" 
+        data:
+          color: '#E0FFFF' #cyan
+          data_template:
+            tag: "network-{{ trigger.entity_id }}"

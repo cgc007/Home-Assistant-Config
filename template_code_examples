@@ -6,6 +6,7 @@ loop through all states:
 
 Play YouTube Video on Family room roku:
 curl -d '' "http://192.168.1.50:8060/launch/837?contentID=I2tb_06sQDE"
+curl -d '' "http://192.168.1.50:8060/launch/837?contentID=Q7Y7SvAPHzY" 'July 19th OHC Livestream, does this work on other days or is this the video contentID?
 
 loop through all lights and list those that are on and not at full brightness:
 

@@ -1,0 +1,12 @@
+platform: ping
+hosts: 
+  ssd_cam: 192.168.1.100
+  sense: 192.168.1.200
+  my_book_live: 192.168.1.104
+  hue_bridge: 192.168.1.107
+  fitbit_scale: 192.168.1.105
+  fitbit_ionic_craig: 192.168.1.38
+  bond_hub: 192.168.1.106
+scan_interval: 15 #value in seconds
+
+

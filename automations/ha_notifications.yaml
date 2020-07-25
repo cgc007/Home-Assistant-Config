@@ -4,21 +4,13 @@
    - platform: homeassistant
      event: start
   action:
-    - service: notify.alexa_media
+    - service: notify.mobile_app_pixel_3a
       data:
-        target: 
-          - media_player.craig_s_alexa_apps
-        #title: "My title for Echo show"
+        title: 'HomeAssistant'
+        message: 'HomeAssistant is starting up'
         data:
-          type: push
-          #method: all
-        message: "HomeAssistant has started" 
-    #service: notify.discord_bot
-    #data:
-    #  target: !secret discord_notify_channel_id_general
-    #  message: HomeAssistant has started
-    #  data:
-    #    tag: 'home-assistant-startup'
+          color: '#E0FFFF' #cyan
+          tag: homeassistant-core
 
 - alias: "Notify at stop"
   initial_state: 'on'
@@ -26,84 +18,52 @@
    - platform: homeassistant
      event: shutdown
   action:
-    - service: notify.alexa_media
+    - service: notify.mobile_app_pixel_3a
       data:
-        target: 
-          - media_player.craig_s_alexa_apps
-        #title: "My title for Echo show"
+        title: 'HomeAssistant'
+        message: 'HomeAssistant is shutting down'
         data:
-          type: push
-          #method: all
-        message: "HomeAssistant has stopped"
-    #service: notify.discord_bot
-    #data:
-    #  target: !secret discord_notify_channel_id_general
-    #  message: HomeAssistant has stopped  
-    #  data:
-    #    tag: 'home-assistant-shutdown'
+          color: '#E0FFFF' #cyan
+          tag: homeassistant-core
 
 - alias: "Z-wave Network is starting"
   trigger:
     platform: event
     event_type: zwave.network_start
   action:
-    - service: notify.alexa_media
+    - service: notify.mobile_app_pixel_3a
       data:
-        target: 
-          - media_player.craig_s_alexa_apps
-        #title: "My title for Echo show"
+        title: 'HomeAssistant'
+        message: 'Z-Wave Network Starting'
         data:
-          type: push
-          #method: all
-        message: "Z-Wave Network is starting"
-    #service: notify.discord_bot
-    #data:
-    #  target: !secret discord_notify_channel_id_general
-    #  message: Z-Wave Network is Starting  
-    #  data:
-    #    tag: 'zwave-network'
+          color: '#E0FFFF' #cyan
+          tag: zwave
 
 - alias: "Z-wave Network is stopping"
   trigger:
     platform: event
     event_type: zwave.network_stop
   action:
-    - service: notify.alexa_media
+    - service: notify.mobile_app_pixel_3a
       data:
-        target: 
-          - media_player.craig_s_alexa_apps
-        #title: "My title for Echo show"
+        title: 'HomeAssistant'
+        message: 'Z-Wave Network Stopping'
         data:
-          type: push
-          #method: all
-        message: "Z-Wave Network is stopping"
-    #service: notify.discord_bot
-    #data:
-    #  target: !secret discord_notify_channel_id_general
-    #  message: Z-Wave Network is stopping  
-    #  data:
-    #    tag: 'zwave-network'
+          color: '#E0FFFF' #cyan
+          tag: zwave
 
 - alias: "Z-wave Network is ready"
   trigger:
     platform: event
     event_type: zwave.network_ready
   action:
-    - service: notify.alexa_media
+    - service: notify.mobile_app_pixel_3a
       data:
-        target: 
-          - media_player.craig_s_alexa_apps
-        #title: "My title for Echo show"
+        title: 'HomeAssistant'
+        message: 'Z-Wave Network Ready'
         data:
-          type: push
-          #method: all
-        message: "Z-Wave Network is Ready"
+          color: '#E0FFFF' #cyan
+          tag: zwave
     - service: automation.turn_on
       entity_id:
         - automation.motion_detected_in_the_garage
-    #service: notify.discord_bot
-    #data:
-    #  target: !secret discord_notify_channel_id_general
-    #  message: Z-Wave Network is Ready  
-    #  data:
-    #    tag: 'zwave-network'

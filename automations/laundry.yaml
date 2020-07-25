@@ -3,20 +3,41 @@
     - platform: numeric_state
       entity_id: switch.dryer
       value_template: "{{ state.attributes.current_power_w }}"
-      above: 0
+      above: 30
   action:
     - service: homeassistant.turn_on
       entity_id: automation.switch_the_laundry
+    - service: notify.mobile_app_pixel_3a
+      data:
+        message: clear_notification
+        data:
+          tag: switch_laundry
+    - service: notify.mobile_app_heidi_s_iphone_11
+      data:
+        message: clear_notification
+        data:
+          tag: switch_laundry
+    
 
 - alias: "Washer has started"
   trigger:
     - platform: numeric_state
       entity_id: switch.washing_machine
       value_template: "{{ state.attributes.current_power_w }}"
-      above: 0
+      above: 4
   action:
     - service: homeassistant.turn_on
       entity_id: automation.switch_the_laundry
+    - service: notify.mobile_app_pixel_3a
+      data:
+        message: clear_notification
+        data:
+          tag: switch_laundry
+    - service: notify.mobile_app_heidi_s_iphone_11
+      data:
+        message: clear_notification
+        data:
+          tag: switch_laundry
 
 - alias: "Switch the Laundry"
   initial_state: 'off'
@@ -24,11 +45,11 @@
     - platform: numeric_state
       entity_id: switch.washing_machine
       value_template: "{{ state.attributes.current_power_w }}"
-      below: 1
+      below: 3
     - platform: numeric_state
       entity_id: switch.dryer
       value_template: "{{ state.attributes.current_power_w }}"
-      below: 1
+      below: 30
   condition:
     - condition: template # only notify if washer and dryer aren't running
       value_template: "{{ state_attr('switch.dryer', 'current_power_w') |int(0)  == 0 and state_attr('switch.washing_machine', 'current_power_w') |int(0)  == 0 }}"
@@ -41,7 +62,10 @@
         message: 'Switch the laundry'
         data:
           color: '#E0FFFF' #cyan
+          tag: switch_laundry
     - service: notify.mobile_app_heidi_s_iphone_11
       data:
         title: 'Laundry'
         message: 'Switch the laundry'
+        data:
+          tag: switch_laundry

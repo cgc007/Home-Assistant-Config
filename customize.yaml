@@ -64,3 +64,7 @@ cover.dining_room_left:
   device_class: shade
 cover.dining_room_right:
   device_class: shade
+sensor.washing_machine_power:
+  unit_of_measurement: watt
+sensor.dryer_power:
+  unit_of_measurement: watt
